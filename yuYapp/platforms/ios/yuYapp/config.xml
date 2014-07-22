@@ -28,4 +28,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <feature name="DatePicker">
+        <param name="ios-package" value="DatePicker" />
+    </feature>
 </widget>
