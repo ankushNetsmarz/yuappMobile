@@ -58,7 +58,6 @@
 <div><input  id="SignUpEmail" type="email" placeholder="Email Address" class="signup_box"></div>
 <div><input id="SignUpPassword" type="password" placeholder="Pasword" class="signup_box"></div>
 <div><input id="SignUpDOB" placeholder="DOB" class="signup_box"></div>
-
 <div><input id="SignUpgender"  placeholder="gender" class="gender signup_box"></div>
 
 </form>
@@ -91,29 +90,36 @@
     <script src="js/jquery-2.0.2.js"></script>
     <script src="js/SignIn.js"></script>
     <script src="js/signUp.js"></script>
-       <script src="cordova.js"></script>
     <script>
         $(document).ready(function () {
-
-          $("#SignUpDOB").on("click", function () {
-                var options = 
-                  {
-                    date: new Date(),
-                    mode: 'date'
-                   };
-
-            datePicker.show(options, function(date)
-            {
-        
-            alert("date result " + date);  
-            });
-          
-          });
-        
+            
             $("#loginButton").on("click", function () {
+              
+                    
+                    
                 var userLoginEmailId = $("#userLoginEmailId").val();
-              var loginPassword= $("#userLoginPassword").val();
-              SignIn(userLoginEmailId, loginPassword);
+                var loginPassword = $("#userLoginPassword").val();
+             
+                if (userLoginEmailId != '' || loginPassword != '') {
+                    SignIn(userLoginEmailId, loginPassword);
+                }
+                else {
+                    alert("fields cant be empty");
+                }
+            });
+
+            $('#SignUpEmail').blur(function ()
+            {
+
+                if ($(this).val() == "")
+                {
+                 
+                }
+                else
+                {
+                   
+                    ValidateEmail();
+                }
             });
 
             $("#signUpButton").on("click", function () {
@@ -141,9 +147,7 @@
                 var SignUpPassword = $("#SignUpPassword").val();
                 var SignUpDOB = $("#SignUpDOB").val();
                 var SignUpgender = $("#SignUpgender").val();
-               
-                var d = new Date();
-                d.getTime();
+                          
                 Signup(SignUpFirstName, SignUpLastName, SignUpUserName, SignUpUserName, SignUpEmail, SignUpPassword, SignUpgender, SignUpgender);
             });
         });
