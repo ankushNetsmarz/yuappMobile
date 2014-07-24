@@ -5,6 +5,10 @@
 <title>Untitled Document</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <meta name="viewport" content="width=device-width, user-scalable=no">
+
+<script src="js/SpryTabbedPanels.js" type="text/javascript"></script>
+<link href="css/SpryTabbedPanels.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -12,7 +16,17 @@
 <div class="interest-topbar">
 <div class="left-top-btn"><button type="button" class="menu_btn_top"></button></div>
 <div class="top_head_bg"><label class="top_heading">SELECT INTEREST</label></div>
-<div class="right-top-btn"><img src="images/profile-pic.jpg" width="39" height="39"></div>
+<div class="right-top-btn">
+<div style="text-align: right;"><a href="#" class="profile-setting"><img src="images/profile-pic.jpg" width="39" height="39"></a></div>
+<div class="profile-menu" style="display:none;">
+<ul>
+<li>See Profile</li>
+<li>Edit Profile</li>
+<li id="logout">Logout</li>
+</ul>
+</div>
+<div class="clr"></div>
+</div>
 
 </div>
 
@@ -20,7 +34,7 @@
 
 
 <!-- after the login page display this page (in this page firstly show these menu buttons) -->
-<div class="navigation" style="display:none;">
+<div class="navigation" style="display:none;z-index:10">
 
 <div class="ctgry-row">
 <div class="unselect left_category">yu Cam</div>
@@ -38,7 +52,7 @@
 
 
 <!-- after the click on single menu show this div -->
-<div class="ctgry-list-main" style="display:block;">
+<div class="ctgry-list-main" style="display:none;">
 <div class="white-strip">YAPP Live</div>
 
 <div class="list-area">
@@ -62,12 +76,177 @@
 <div class="clr"></div>
 </div>
 
+<!-- the edit profile or see profile divs start from below -->
+
+<div id="edit_profile" style="display:block;">
+<div class="profile-pic"> <img src="images/user-profile-pic.png"><div class="change-pic">Change Your Pic</div> </div>
+<div class="edit_prof_inputs">
+<form>
+
+<div><input  id="editFirstname"  type="text" placeholder="First Name" class="edit_prof_box"></div>
+<div><input  id="editLastname" type="text" placeholder="Last Name" class="edit_prof_box"></div>
+<div><input  id="editUserName" type="text" placeholder="User Name" class="edit_prof_box"></div>
+<div><input id="editDOB" placeholder="DOB" class="edit_prof_box"></div>
+<div><input id="editGender"  placeholder="Gender" class="edit_prof_box"></div>
+<div><input type="button" id="updateButton" class="edit-prof-btn" value="UPDATE" />
+
+    
+
+</div>
+</form>
+</div>
+</div>
+
+
+<div id="see_profile" style="display:none;">
+<div class="profile-pic"> <img src="images/user-profile-pic.png"></div>
+<div class="see-status">Smiles are like sunshine</div>
+<div class="see_prof">
+<form>
+<div><input  id="SeefullName"  type="text" placeholder="Full Name" class="edit_prof_box" disabled></div>
+<div><input  id="SeeUserName" type="text" placeholder="User Name" class="edit_prof_box" disabled></div>
+<div><input  id="SeeEmail" type="email" placeholder="Email Address" class="edit_prof_box" disabled></div>
+<div><input id="SeeDOB" placeholder="DOB" class="edit_prof_box" disabled></div>
+<div><input id="SeeGender"  placeholder="Gender" class="edit_prof_box" disabled></div>
+
+</form>
+</div>
+</div>
+<!-- the edit profile or see profile divs ends here -->
+
+<!-- add new frends screen start here -->
+
+<div class="add-frnd" style="display:none;">
+
+<div id="TabbedPanels2" class="TabbedPanels">
+    <ul class="TabbedPanelsTabGroup">
+      <li class="TabbedPanelsTab" tabindex="0">Plug List</li>
+      <li class="TabbedPanelsTab" tabindex="0">People Map</li>
+    </ul>
+    <div class="TabbedPanelsContentGroup">
+      <div class="TabbedPanelsContent">
+      <div class="add-frnd-list">
+        <div class="plug-frnd-main">
+        <div class="plug-frnd">
+        <div class="fl single-frnd-imgarea"><img src="images/Syra-yousaf-profile-pictures.jpg"></div>
+        <div>Syra Yousaf</div>
+        </div>
+        <div class="plug-btn-div"><button type="button" class="plug-btn">PLUG</button></div>
+        </div>
+        
+         <div class="plug-frnd-main">
+        <div class="plug-frnd">
+        <div class="fl single-frnd-imgarea"><img src="images/Syra-yousaf-profile-pictures.jpg"></div>
+        <div>Syra Yousaf</div>
+        </div>
+        <div class="plug-btn-div"><button type="button" class="plug-btn">PLUG</button></div>
+        </div>
+        
+        <div class="plug-frnd-main">
+        <div class="plug-frnd">
+        <div class="fl single-frnd-imgarea"><img src="images/Syra-yousaf-profile-pictures.jpg"></div>
+        <div>Syra Yousaf</div>
+        </div>
+        <div class="plug-btn-div"><button type="button" class="plug-btn">PLUG</button></div>
+        </div>
+        
+        <div class="plug-frnd-main">
+        <div class="plug-frnd">
+        <div class="fl single-frnd-imgarea"><img src="images/Syra-yousaf-profile-pictures.jpg"></div>
+        <div>Syra Yousaf</div>
+        </div>
+        <div class="plug-btn-div"><button type="button" class="plug-btn">PLUG</button></div>
+        </div>
+        
+        <div class="plug-frnd-main">
+        <div class="plug-frnd">
+        <div class="fl single-frnd-imgarea"><img src="images/Syra-yousaf-profile-pictures.jpg"></div>
+        <div>Syra Yousaf</div>
+        </div>
+        <div class="plug-btn-div"><button type="button" class="plug-btn">PLUG</button></div>
+        </div>
+        
+        <div class="plug-frnd-main">
+        <div class="plug-frnd">
+        <div class="fl single-frnd-imgarea"><img src="images/Syra-yousaf-profile-pictures.jpg"></div>
+        <div>Syra Yousaf</div>
+        </div>
+        <div class="plug-btn-div"><button type="button" class="plug-btn">PLUG</button></div>
+        </div>
+        
+        <div class="plug-frnd-main">
+        <div class="plug-frnd">
+        <div class="fl single-frnd-imgarea"><img src="images/Syra-yousaf-profile-pictures.jpg"></div>
+        <div>Syra Yousaf</div>
+        </div>
+        <div class="plug-btn-div"><button type="button" class="plug-btn">PLUG</button></div>
+        </div>
+        
+        <div class="plug-frnd-main">
+        <div class="plug-frnd">
+        <div class="fl single-frnd-imgarea"><img src="images/Syra-yousaf-profile-pictures.jpg"></div>
+        <div>Syra Yousaf</div>
+        </div>
+        <div class="plug-btn-div"><button type="button" class="plug-btn">PLUG</button></div>
+        </div>
+        
+        <div class="plug-frnd-main">
+        <div class="plug-frnd">
+        <div class="fl single-frnd-imgarea"><img src="images/Syra-yousaf-profile-pictures.jpg"></div>
+        <div>Syra Yousaf</div>
+        </div>
+        <div class="plug-btn-div"><button type="button" class="plug-btn">PLUG</button></div>
+        </div>
+        
+        <div class="plug-frnd-main">
+        <div class="plug-frnd">
+        <div class="fl single-frnd-imgarea"><img src="images/Syra-yousaf-profile-pictures.jpg"></div>
+        <div>Syra Yousaf</div>
+        </div>
+        <div class="plug-btn-div"><button type="button" class="plug-btn">PLUG</button></div>
+        </div>
+                
+        </div>
+      </div>
+      <div class="TabbedPanelsContent">
+      add map here
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- add new frends screen ends here -->
+
+
 <div class="clr"></div>
 </div>
+    <script src="js/updateProfile.js"></script>
+    <script src="js/UserProfile.js"></script>
     <script src="js/jquery-2.0.2.js"></script>
     <script>
-        var flag = 0;
-        $(document).ready(function () {
+       var flag = 0;
+       $(document).ready(function () {
+
+           GetUserProfile();
+
+           $("#updateButton").on("click", function ()
+           {
+               var editFirstname=  $("#editFirstname").val();
+               var editLastname = $("#editLastname").val();
+               var editUserName = $("#editUserName").val();
+               var editDOB = $("#editDOB").val();
+               var editGender = $("#editGender").val();
+              
+               UpdateProfile(editFirstname, editLastname, editUserName, editDOB, editGender);
+            //   return false;
+           });
+
+            $("#logout").on("click", function () {
+                localStorage.clear();
+                window.location.replace("login.html");
+            });
+         
+
             $(".menu_btn_top").on("click", function () {
                 if (flag == 0) {
                     $(".navigation").css("display", "block");
@@ -85,12 +264,26 @@
 
 
             $(".right-top-btn").on("click", function () {
-                localStorage.clear();
-                window.location.replace("login.html");
+                if (flag == 0) {
+                    $(".profile-menu").css("display", "block");
+                    flag = 1;
+                }
+                else {
+                    $(".profile-menu").css("display", "none");
+                    flag = 0;
+                }
             });
         });
 
     </script>
+<script type="text/javascript">
+var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2");
+</script>
 
+<script type="text/javascript">
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+</script>
 </body>
+
+<script src="js/jquery.min.js"></script>
 </html>
