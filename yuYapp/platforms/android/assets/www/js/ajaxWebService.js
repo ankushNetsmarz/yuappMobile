@@ -2,12 +2,12 @@
 
 function hideLoader() {
 
-    $('.loader-bg').css("display", "none");
+   // $('.loader-bg').css("display", "none");
 }
 
 function showLoader() {
 
-    $('.loader-bg').css("display", "block");
+  //  $('.loader-bg').css("display", "block");
   
 
 }

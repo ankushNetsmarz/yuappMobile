@@ -35,7 +35,7 @@ function SignIn(userLoginEmailId, loginPassword) {
             {
                 localStorage.setItem("LoginName", userLoginEmailId);
                 localStorage.setItem("loginPassword", loginPassword);
-                window.location.replace("home.html");
+                window.location.replace("friends.html");
             }
             else {
                 alert("wrong user");
