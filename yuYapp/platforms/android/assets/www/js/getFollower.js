@@ -1,6 +1,6 @@
 ﻿
 
-function GetFollowerList()
+function GetAllFollowerList()
 {
     var inputdata = {
         "userId": 4,
@@ -10,7 +10,7 @@ function GetFollowerList()
     $.ajax({
         type: "GET",
        // url: "http://localhost:6269/Users/GetFollower",
-       url: "http://174.141.233.6/YuY/Users/GetFollower",
+        url: "http://174.141.233.6/YuY/Users/GetAllFollower",
         data: inputdata,
         dataType: "json",
 
@@ -29,7 +29,7 @@ function GetFollowerList()
 
                     //console.log(data.ResponseData.length);
                 }
-                $("#getfollowingList").html(HTML);
+                $("#getfollowerList").html(HTML);
             }
           
             },
@@ -40,8 +40,7 @@ function GetFollowerList()
 }
 
 
-
-function GetFollowingList() {
+function GetRecentFollowerList() {
     var inputdata = {
         "userId": 4,
         "start": 1,
@@ -49,19 +48,19 @@ function GetFollowingList() {
     };
     $.ajax({
         type: "GET",
-        //url: "http://localhost:6269/Users/GetFollowing",
-        url: "http://174.141.233.6/YuY/Users/GetFollowing",
+       // url: "http://localhost:6269/Users/GetRecentFollower",
+        url: "http://174.141.233.6/YuY/Users/GetRecentFollower",
         data: inputdata,
         dataType: "json",
 
         success: function (data) {
-         
-         
             var HTML = "";
 
             if (data.ResponseData.length > 0) {
 
                 for (var i = 0; i < data.ResponseData.length; i++) {
+
+
                     HTML += "<div class='single-frnd'>"
                     HTML += "<div class='fl single-frnd-imgarea'><img src='images/Syra-yousaf-profile-pictures.jpg'></div>"
                     HTML += "<div>" + data.ResponseData[i].UserName + "</div>"
@@ -71,7 +70,8 @@ function GetFollowingList() {
                 }
                 $("#getfollowerList").html(HTML);
             }
-         
+
+            console.log(data);
             //console.log(data.ResponseData.length);
         },
         error: function (xhr) {
@@ -79,3 +79,4 @@ function GetFollowingList() {
         }
     });
 }
+
