@@ -38,6 +38,6 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function() {
-        window.location.href="login.html";
+       // window.location.href="login.html";
           }
 };
