@@ -1,0 +1,15 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.plugin.datepicker": {
+            "PACKAGE_NAME": "{486E35B7-9CCE-41E0-BD40-E6B02A57327C}"
+        }
+    },
+    "dependent_plugins": {}
+}
