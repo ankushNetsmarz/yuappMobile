@@ -4,7 +4,7 @@
        distributed with this work for additional information
        regarding copyright ownership.  The ASF licenses this file
        to you under the Apache License, Version 2.0 (the
-       "License"); you may not use this file except in compliance
+       "License"); you may not use this file except in compliance	
        with the License.  You may obtain a copy of the License at
 
          http://www.apache.org/licenses/LICENSE-2.0
@@ -30,8 +30,11 @@ public class yuYapp extends CordovaActivity
         super.onCreate(savedInstanceState);
         super.init();
         // Set by <content src="index.html" /> in config.xml
-        super.loadUrl(Config.getStartUrl());
+      //  super.loadUrl(Config.getStartUrl());
         super.loadUrl("file:///android_asset/www/login.html");
+//        WebSettings ws = super.appView.getSettings();
+//        ws.setSupportZoom(true);
+//        ws.setBuiltInZoomControls(true); 
     }
 }
 

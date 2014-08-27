@@ -13,15 +13,25 @@ $('#SignUpEmail').blur(function () {
 $("#signUpButton").on("click", function () {
     //  $(".signup_inputs, .registerpage_btns, .signup-logo").css("display", "block");
     $(".login_inputs,#loginButtonDiv,#signUpButtonDiv,.need_help,.logo").css("display", "none");
+
+    $('#signUpDiv').animate({
+        'marginTop': "-20px" //moves down
+    });
     $("#signUpDiv").css("display", "block");
-    $("#signUpDiv").animate({ top: '1px' });
 });
 
 
 $("#backButtonRegister").on("click", function () {
+    $("#SignUpFullName, #SignUpPassword, #SignUpDOB, #SignUpgender, #SignUpUserName, #SignUpEmail").val('');
+   
+ 
     $("#signUpDiv").css("display", "none");
+
+
+    $('#signUpDiv').animate({
+        'marginTop': "20px" //moves up
+    });
     $(".login_inputs,#loginButtonDiv,#signUpButtonDiv,.need_help,.logo").css("display", "block");
-    $("#LoginDiv").animate({ bottom: '1px' });
 
 });
 
@@ -64,7 +74,14 @@ function Signup(SignUpFirstName, SignUpLastName, SignUpUserName, SignUpUserName,
         success: function (data) {
           
             console.log(data);
+            if (data.ResponseData != 0)
+            {
+                var userId = data.ResponseData;
+                alert(userId);
+                localStorage.setItem("userId", userId);
+                window.location.replace("home.html");
             //alert("success..." + data);
+            }
         },
         error: function (xhr) {
          
@@ -86,7 +103,7 @@ function ValidateEmail() {
     $.ajax({
         type: "GET",
         beforeSend: showLoader(),
-        url: mainUrl + "checkuser",
+        url: mainUrl + "checkemail",
         data: postData,
         success: function (data) {
 

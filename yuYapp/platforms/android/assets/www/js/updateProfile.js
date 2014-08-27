@@ -1,7 +1,35 @@
-﻿function UpdateProfile(editFirstname, editLastname, editUserName, editDOB, editGender) {
-    alert(editGender);
+﻿$("#EditProfile").on("click", function () {
+    $('.inner-pages').animate({
+        'top': "0px" //moves up
+    });
+
+    $("#see_profile").css("display", "none");
+    $(".add-frnd").css("display", "none");
+    $("#edit_profile").css("display", "block");
+    $(".top_heading").text("EDIT-PROFILE");
+    $(".ctgry-list-main").css("display", "none");
+    localStorage.setItem("MenuFlag", "up");
+});
+
+
+
+$("#updateButton").on("click", function () {
+    var editFirstname = $("#editFirstname").val();
+    var editLastname = $("#editLastname").val();
+    var editUserName = $("#editUserName").val();
+    var editDOB = $("#editDOB").val();
+    var editGender = $("#editGender").val();
+
+    UpdateProfile(editFirstname, editLastname, editUserName, editDOB, editGender);
+    //   return false;
+});
+
+
+function UpdateProfile(editFirstname, editLastname, editUserName, editDOB, editGender) {
+    var userId = localStorage.getItem("userId");
+
     var userData = {
-        userId: 13,
+        userId: userId,
         userName: editUserName,
         password:'',
         DOB: editDOB,
@@ -12,7 +40,7 @@
     };
     $.ajax({
         type: "Post",
-     
+        beforeSend: showLoader(),
        url: "http://174.141.233.6/YuY/Users/UpdateProfile",
         data: userData,
         success: function (data) {
@@ -24,5 +52,7 @@
           
             alert(xhr.responseText);
         }
+    }).done(function () {
+        hideLoader();
     });
 }
