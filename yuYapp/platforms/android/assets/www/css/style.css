@@ -93,7 +93,7 @@ input[placeholder], [placeholder], *[placeholder] {
  .menu_btn_top{ background:url(../images/menu-icon.png) no-repeat 0px 0px rgba(0, 0, 0, 0); height:25px; width:34px; margin:15px 0 0 10px; padding:0; border:none; background-size:28px;}
  .map_btn_top{ background:url(../img/top_tick_icons.png) no-repeat -39px 9px rgba(0, 0, 0, 0); height:59px; width:59px; margin:0; padding:0; border:none;}
  
- .top_head_bg{padding: 17px 0 0; margin:0 auto; text-align:center;}
+ .top_head_bg{padding: 16px 0 0; margin:0 auto; text-align:center;}
  .top_heading{text-align:center; color:#FFF; font-family:'Open Sans', sans-serif; font-weight:normal; font-size:14px;}
  
  .unselect{background:url(../images/unselect-ctgry-3.png) no-repeat center; background-size:86px; width:86px; height:86px; margin:0 auto; text-align:center; color:#fff; font-size:12px; line-height:86px; cursor:pointer; text-shadow:0 1px 0 rgba(0, 0, 0, 0.7); font-weight:bold;}
@@ -137,15 +137,20 @@ input[placeholder], [placeholder], *[placeholder] {
 
 .profile-pic{width:50%; height:154px; margin:20px auto 0; border-radius:0%;/* border:4px solid #efefef; */overflow:hidden; position:relative; box-shadow:2px 2px 2px -1px rgba(0, 0, 0, 0.8);}
 .profile-pic img {width:102%;}
-.change-pic{bottom: 0px; background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.6); font-size: 12px; text-align: center; margin: 0px auto; position: absolute; padding:10px 0; color:#FFF; width:100%;}
+.change-pic{bottom: 0px; background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.6); font-size: 12px; text-align: center; margin: 0px auto; position: absolute; padding:4px 5px 0; color:#FFF; right:0;}
+.change-pic img {width:26px;}
 
-.edit_prof_box{width:80%; background:#f3f3f3; border:none; padding:6px 10px; margin:0 0 6px; border-radius:4px; -moz-border-radius:4px; -ms-border-radius:4px; -o-border-radius:4px; -webkit-border-radius:4px; color:#333; box-shadow:2px 2px 2px -1px rgba(0, 0, 0, 0.8);}
+.single-edt-inpt{ margin:0 0 10px; padding:0 5px;}
+
+.edit_prof_box{width:79%; background:#f0f0f0; border:none; border-right:1px solid #ddd; padding:6px 10px; border-bottom-left-radius:4px; border-top-left-radius:4px; color:#333; box-shadow:-2px 2px 2px -1px rgba(0, 0, 0, 0.8);}
+
+.single-edt-inpt img{background:#f0f0f0; box-shadow: 2px 2px 2px -1px rgba(0, 0, 0, 0.8); float: right; border-top-right-radius: 4px; border-bottom-right-radius: 4px; width: 20px; padding: 4px 10px; border-left:1px solid #ddd;}
 
 /*.select_box{width:87%; background: rgba(255, 255, 255, 0.7); border:none; padding:6px 3px; margin:0 0 15px; border-radius:4px; -moz-border-radius:4px; -ms-border-radius:4px; -o-border-radius:4px; -webkit-border-radius:4px;}*/
 
 .gender{margin: 0px auto; border:none; border-radius: 4px; text-align: left; padding: 5px 7px; width: 82%; color: rgb(51, 51, 51); background: rgba(255, 255, 255, 0.7);}
 
-.edit-prof-btn{background: none repeat scroll 0% 0% rgb(118, 185, 35); border: medium none; color: rgb(255, 255, 255); margin: 5% 0px 1%; padding: 2% 4%; box-shadow:2px 2px 2px -1px rgba(0, 0, 0, 0.8);}
+.edit-prof-btn{background: none repeat scroll 0% 0% rgb(118, 185, 35); border: medium none; color: rgb(255, 255, 255); margin: 3% 0px 1%; padding: 2% 4%; box-shadow:2px 2px 2px -1px rgba(0, 0, 0, 0.8);}
 
 .load-more{background: none repeat scroll 0% 0% rgb(118, 185, 35); border: medium none; color: rgb(255, 255, 255); margin:0px; padding: 2% 4%; box-shadow:2px 2px 2px -1px rgba(0, 0, 0, 0.8);}
 
@@ -237,7 +242,7 @@ background-image:url("../images/body-bg.png"); background-repeat: no-repeat; bac
 .upload-user-pic{width:49px; height:49px; overflow:hidden; box-shadow:2px 2px 4px -2px rgba(0, 0, 0, 0.7); margin:0 5px 5px 0;}
 .upload-user-pic img{width:49px;}
 .upload-title{ padding:0; margin:0; text-align:left; font-size:12px;}
-.uploaded-pic{height:300px; overflow: hidden; width: 100%;}
+.uploaded-pic{max-height:300px; overflow: hidden; width: 100%;}
 .uploaded-pic img{width: 100%;}
 .select-ctgry{background:#fff;border:none; box-shadow: 0 2px 3px -2px rgba(0, 0, 0, 0.7); padding: 7px 10px; width: 45%; margin:0 10px;}
 .Upload-text-btn{padding:0; border:none; background:url(../images/upload.png) no-repeat center center rgba(0, 0, 0, 0); background-size:100%; width:30px; height:30px;}

@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -47,30 +47,27 @@
                 <div class="single-full-annotate">
                     <label>
                         <span class="fl">First Annotate</span>
-                        <input type="text" class="fr" placeholder="Enter your status" id="">
+                        <input type="text" class="fr" placeholder="Enter your status" id="Text1">
                         <div class="clr"></div>
                     </label>
                 </div>
                 <div class="single-full-annotate">
                     <label>
                         <span class="fl">Second Annotate</span>
-                        <input type="text" class="fr" placeholder="Enter your status" id="">
+                        <input type="text" class="fr" placeholder="Enter your status" id="Text2">
                         <div class="clr"></div>
                     </label>
                 </div>
             </div>
             <div class="cancel-btn">
-                <input type="button" id="" class="like-btn" value="Cancel">
-                <input type="button" id="" class="like-btn" value="Add Annotate">
+                <input type="button" id="Button1" class="like-btn" value="Cancel">
+                <input type="button" id="Button2" class="like-btn" value="Add Annotate">
             </div>
         </div>
     </div>
     <!-- add annotation screen end -->
 
-   
-<!-- upload gallery popup -->
-
-<div id="uploadScreen" class="upload-popup-bg" style="display:none; z-index:49">
+  <div id="uploadScreen" class="upload-popup-bg" style="display:none; z-index:49">
 <div class="upload-popup-area">
 <div class="upload-popup-head">
 <h3>Upload Gallery</h3>
@@ -80,7 +77,7 @@
 <div class="display-pic"> <img id="UploadPreview" src=""></div>
 <div>
 <input type="button"  id="UploadImageButton" onclick="getUploadPhoto(pictureSource.PHOTOLIBRARY);" class="upload-gall-btn" value="Images">
-<input type="button"  id="UploadVideoButton" class="upload-gall-btn" value="Videos">
+<input type="button"  id="UploadVideoButton"  onclick="getVideo();" class="upload-gall-btn" value="Videos">
 </div>
 </div>
 <div class="single-upload-popup">
@@ -119,27 +116,23 @@
 </div>
 <!-- upload gallery popup end -->
 
-    <div class="interest-topbar">
-        <div class="left-top-btn">
-            <button type="button" class="menu_btn_top"></button>
-        </div>
-        <div class="top_head_bg">
-            <label class="top_heading">WORD</label></div>
-        <div class="right-top-btn">
-            <div style="text-align: right;"><a href="#" class="profile-setting">
-                <img src="images/profile-pic.jpg" width="39" height="39"></a></div>
-            <div class="profile-menu" style="display: none;">
-                <ul>
-                    <li id="SeeProfile">See Profile</li>
-                    <li id="EditProfile">Edit Profile</li>
-                    <li id="logout">Logout</li>
-                </ul>
-            </div>
-            <div class="clr"></div>
 
-        </div>
+<div class="interest-topbar">
+<div class="left-top-btn"><button type="button" class="menu_btn_top"></button></div>
+<div class="top_head_bg"><label class="top_heading">WORD</label></div>
+<div class="right-top-btn">
+<div style="text-align: right;"><a href="#" class="profile-setting"><img src="images/profile-pic.jpg" width="39" height="39"></a></div>
+<div class="profile-menu" style="display:none;">
+<ul>
+<li id="EditProfile">My Profile</li>
+<li id="logout">Logout</li>
+</ul>
+</div>
+<div class="clr"></div>
+    
+</div>
+</div>
 
-    </div>
 
     <div class="main_div">
 
@@ -161,72 +154,82 @@
 
  <span class="notify-badge">5</span>
 
-                </div>
-                <div id="FriendsOption" class="unselect right_box">Friends</div>
-                <div class="clr"></div>
-            </div>
 
-            <div class="ctgry-row-3">
-                <div id="ShhhOption" class="unselect left_box">Shhh..</div>
-                <div id="YappOption" class="unselect right_box">YAPP</div>
-                <div class="clr"></div>
-            </div>
+</div>
+<div id="FriendsOption" class="unselect right_box">Friends</div>
+<div class="clr"></div>
+</div>
 
-            <div class="menu-shadow">
-                <img src="images/menu-shadow.png"></div>
+<div class="ctgry-row-3">
+<div id="ShhhOption" class="unselect left_box">Shhh..</div>
+<div id="YappOption" class="unselect right_box">YAPP</div>
+<div class="clr"></div>
+</div>
 
-        </div>
+<div class="menu-shadow"><img src="images/menu-shadow.png"></div>
+
+</div>
 
 
         <div class="inner-pages">
             <div class="inner-page-bg">
                 <!-- after the click on single menu show this div -->
-                <div class="ctgry-list-main" style="display: block;">
+                <div  class="ctgry-list-main" style="display:block;">
 
-                    <div class="post-status">
+<div class="post-status">
 
-                        <input id="accessButton" type="button" class="post-btn">
-                        <input type="text" id="InsertStatusTextBox" placeholder="Enter your status" class="post-input">
-                        <input type="button" id="postStatus" class="post-text-btn" value="POST">
-                        <div class="add-annotation"><a href="#">Add your own Annotation</a></div>
-                    </div>
+<input id="accessButton" type="button" class="post-btn">
+<input type="text" id="InsertStatusTextBox" placeholder="Enter your status" class="post-input">
+<input type="button"  id="postStatus" class="post-text-btn" value="POST">
+<div class="add-annotation"><a href="#">Add your own Annotation</a></div>
+</div>
 
-                    <div class="list-area">
+<div class="list-area">
 
 
 
-                        <div class="clr"></div>
-                    </div>
+<div class="clr"></div>
+</div>
 
-                    <div class="clr"></div>
-                </div>
+<div class="clr"></div>
+</div>
 
                 <!-- the edit profile or see profile divs start from below -->
 
                 <div id="edit_profile" style="display: none;">
                  
-                    <div class="profile-pic"  onclick="getPhoto(pictureSource.PHOTOLIBRARY);"> <img  id="profile" src=""><div class="change-pic">Change Your Pic</div>
+                    <div class="profile-pic"  onclick="getPhoto(pictureSource.PHOTOLIBRARY);"> <img  id="profile" src=""><div class="change-pic"><img src="images/camera-icon.png"></div>
                     </div>
                     <div class="edit_prof_inputs">
                         <form>
-                            <div>
-                                <input id="editFirstname" type="text" placeholder="First Name" class="edit_prof_box"></div>
-                            <div>
-                                <input id="editLastname" type="text" placeholder="Last Name" class="edit_prof_box"></div>
-                            <div>
-                                <input id="editUserName" type="text" placeholder="User Name" class="edit_prof_box"></div>
-                            <div>
-                                <input id="editDOB" placeholder="DOB" class="edit_prof_box"></div>
-                            <div>
-                                <input id="editGender" placeholder="Gender" class="edit_prof_box"></div>
-                            <div>
-                                <input type="button" id="updateButton" class="edit-prof-btn" value="UPDATE" /></div>
-                        </form>
+<div class="single-edt-inpt">
+<input  id="editFirstname"  type="text" placeholder="First Name" class="edit_prof_box" disabled>
+<img src="images/Editing-Edit-icon.png">
+</div>
+<div class="single-edt-inpt">
+<input  id="editLastname" type="text" placeholder="Last Name" class="edit_prof_box" disabled>
+<img src="images/Editing-Edit-icon.png">
+</div>
+<div class="single-edt-inpt">
+<input  id="editUserName" type="text" placeholder="User Name" class="edit_prof_box" disabled>
+<img src="images/Editing-Edit-icon.png">
+</div>
+<div class="single-edt-inpt">
+<input id="editDOB" placeholder="DOB" class="edit_prof_box" disabled>
+<img src="images/Editing-Edit-icon.png">
+</div>
+<div class="single-edt-inpt">
+<input id="editGender"  placeholder="Gender" class="edit_prof_box" disabled>
+<img src="images/Editing-Edit-icon.png">
+</div>
+<div>
+<input type="button" id="updateButton" class="edit-prof-btn" value="UPDATE" /></div>
+</form>
                     </div>
                 </div>
 
 
-                <div id="see_profile" style="display: none;">
+                <!--<div id="see_profile" style="display: none;">
                     <div class="profile-pic">
                         <img id="profilePicture" src=""></div>
                     <div id="seeStatus" class="see-status"></div>
@@ -245,7 +248,7 @@
 
                         </form>
                     </div>
-                </div>
+                </div>-->
                 <!-- the edit profile or see profile divs ends here -->
 
 
@@ -267,7 +270,7 @@
                                 <div id="getfollowerList" class="frnd-list-main">
                                 </div>
                                 <div>
-                                    <input type="button" id="Button1" class="load-more" value="Load More" />
+                                    <input type="button" id="Button3" class="load-more" value="Load More" />
                                     <input type="button" id="doneButton" class="load-more" value="Done" style="display: none;" />
                                 </div>
                             </div>
@@ -292,10 +295,10 @@
 
                 <div class="notification" style="display: none;">
                     <div class="notify-area">
-                        <div id="" class="notify-list">
+                        <div id="Div1" class="notify-list">
                         </div>
                         <div>
-                            <input type="button" id="Button3" class="load-more" value="Load More" /></div>
+                            <input type="button" id="Button4" class="load-more" value="Load More" /></div>
                     </div>
                 </div>
 
@@ -375,6 +378,7 @@
             </div>
         </div>
         <div class="clr"></div>
+
     </div>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script src="js/jquery-2.0.2.js"></script>
@@ -394,258 +398,336 @@
     <script src="js/getNotificationCount.js"></script>
     <script src="js/insertStatus.js"></script>
     <script src="js/getImageVideoPost.js"></script>
-      <script src="js/InsertImageVideo.js"></script>
+    <script src="js/InsertImageVideo.js"></script>
     <script src="js/getPost.js"></script>
-      <script src="cordova.js"></script>
+    <script src="cordova.js"></script>
 
 
-    <script>
-        var pictureSource;   // picture source
-        var destinationType; // sets the format of returned value 
-        var imageURL, imageURLs;
-        var flagProfile = 0;
+      <script>
+          var pictureSource;   // picture source
+          var destinationType; // sets the format of returned value 
+          var imageURL, imageURLs;
+          var flagProfile = 0;
+          var i, path, len, mediaFiles;
+          document.addEventListener("deviceready", onDeviceReady, false);
 
-        document.addEventListener("deviceready", onDeviceReady, false);
-
-        function onDeviceReady() {
-            pictureSource = navigator.camera.PictureSourceType;
-            destinationType = navigator.camera.DestinationType;
-        }
-
-        function getUploadPhoto(source) {
-            navigator.camera.getPicture(onPhotoURISuccessUpload, onFail, {
-                quality: 50,
-                destinationType: destinationType.DATA_URL,
-
-                encodingType: Camera.EncodingType.PNG,
-
-                sourceType: source
-
-            });
-        }
-        function onPhotoURISuccessUpload(imageURI) {
-
-            var Image = document.getElementById('UploadPreview');
-            Image.src = "data:image/png;base64," + imageURI;
-            imageURLs = imageURI;
-
-        }
-
-        / * opens default gallery of native system, i.e android or iphone */
-        function getPhoto(source) {
-            navigator.camera.getPicture(onPhotoURISuccess, onFail, {
-                quality: 50,
-                destinationType: destinationType.DATA_URL,
-                encodingType: Camera.EncodingType.PNG,
-                sourceType: source
-
-            });
-            // Retrieve image file location from specified source
-
-        }
-
-        /* on selection of photo passing imageURI for uploading */
-        function onPhotoURISuccess(imageURI) {
-
-            var largeImage = document.getElementById('profile');
-            largeImage.src = "data:image/png;base64," + imageURI;
-            imageURL = imageURI;
-            flagProfile = 1;
-        }
+          function onDeviceReady() {
+              pictureSource = navigator.camera.PictureSourceType;
+              destinationType = navigator.camera.DestinationType;
+          }
 
 
+          var captureSuccess = function (mediaFiles) {
 
-        function onFail(message) {
-            //  alert('Failed because: ' + message);
-        }
+              for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                  path = mediaFiles[i].fullPath;
+                  //   flag = true;
+                  //  $("#video").parent().prop('src', path);
 
+              }
+          };
 
-
-
-
-        $(document).ready(function () {
-            localStorage.setItem("MenuFlag", "up");
-         
-        
-            var flag = 0;
-            var top;
-            var topFlag = 0;
-            GetUserPost();
-            GetUserProfile();
-            var currentWindowHeight = $(window).height();   // returns height of browser viewport
-            var currentWindowWidth = $(window).width(); // returns height of HTML document
-
-    
-         
-         $("#uploadButtonVideoImages").on("click", function () {
-
-             $("#uploadScreen").css("display", "block");
-
-         });
-         $("#nextUpload").on("click", function () {
-
-             InsertPostImage(imageURLs);
-         });
-
-           
-         $("#cancelUpload").on("click", function () {
-
-             $("#uploadScreen").css("display", "none");
-
-         });
-         
+          // capture error callback
+          var captureError = function (error) {
+              //navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+          };
 
 
-            $("#logout").on("click", function () {
-                localStorage.clear();
-                window.location.replace("login.html");
-            });
+          function uploadPhoto(path) {
+
+              var title = $("#UploadTitle").val();
+              var description = $("#UploadDescription").val();
+              var a1 = $("#Upload1Annotate").val();
+              var a2 = $("#Upload2Annotate").val();
 
 
-            $(".right-top-btn").on("click", function () {
-                if (flag == 0) {
-                    $(".profile-menu").css("display", "block");
-                    flag = 1;
-                }
-                else {
-                    $(".profile-menu").css("display", "none");
-                    flag = 0;
-                }
-            });
+              var options = new FileUploadOptions();
+              options.fileKey = "file";
 
-            $(".menu_btn_top").bind('click', function () {
-                var flags = localStorage.getItem("MenuFlag");
-              
-                if (flags == "up")
-                {
-                
-                
-                    $('.inner-pages').animate({
-                        'top': top    //moves up
 
-                    });
+              options.fileName = path.substr(path.lastIndexOf('/') + 1) + '.mp4';
 
-                    localStorage.setItem("MenuFlag","down");
-                }
-                else
-                {
-                
-                 
-                    $('.inner-pages').animate({
-                        'top': "0px" //moves up
-                    });
-                    localStorage.setItem("MenuFlag", "up");
-                }
+              options.mimeType = "video/mp4";
 
-            });
+              var params = {};
+              params.postedBy = 1;
+
+              params.description = description;
+              params.postFileTitle = title;
+              params.allowedUser = "";
+              params.deniedUser = "";
+              params.postType = 2;
+              params.positiveAnnotation = a1;
+              params.negativeAnnotation = a2;
+              params.extention = "";
+
+
+              options.params = params;
+
+              var ft = new FileTransfer();
+
+              ft.upload(path, encodeURI("http://174.141.233.6/YuY/posts/add"), win, fail, options);
+          }
+
+          function win(r) {
+
+              window.plugins.toast.show('Feed Added!', 'long', 'center', function (a) { }, function (b) { });
+              console.log("Code = " + r.responseCode);
+              console.log("Response = " + r.response);
+              console.log("Sent = " + r.bytesSent);
+
+          }
+
+          function fail(error) {
+
+              window.plugins.toast.show('Failed !', 'long', 'center', function (a) { }, function (b) { });
+              //    alert("An error has occurred: Code = " + error.code);
+              console.log("upload error source " + error.source);
+              console.log("upload error target " + error.target);
+          }
+
+
+          function getVideo() {
+              navigator.device.capture.captureVideo(captureSuccess, captureError, { duration: 5000 });
+
+          }
 
 
 
+          function getUploadPhoto(source) {
+              navigator.camera.getPicture(onPhotoURISuccessUpload, onFail, {
+                  quality: 50,
+                  destinationType: destinationType.DATA_URL,
 
-            switch (currentWindowHeight) {
-                case 320:                   //320 *480
+                  encodingType: Camera.EncodingType.PNG,
 
-                    {
-                        top = '380px';
-                       
+                  sourceType: source
 
-                    }
-                    break;
+              });
+          }
+          function onPhotoURISuccessUpload(imageURI) {
 
-                case 568:
-                    if (currentWindowWidth == 320)  //320*568
-                    {
-                        top = '440px';
-                       
-                    }
-                    break;
+              var Image = document.getElementById('UploadPreview');
+              Image.src = "data:image/png;base64," + imageURI;
+              imageURLs = imageURI;
 
-                case 480:
+          }
 
-                    if (currentWindowWidth == 320)//480*320
-                    {
-                        top = '345px';
-                      
-                    }
-                    else {
-                        top = '420px';          //480* 800
-                    }
-                    break;
+          / * opens default gallery of native system, i.e android or iphone */
+          function getPhoto(source) {
+              navigator.camera.getPicture(onPhotoURISuccess, onFail, {
+                  quality: 50,
+                  destinationType: destinationType.DATA_URL,
+                  encodingType: Camera.EncodingType.PNG,
+                  sourceType: source
 
-                case 800:
+              });
+              // Retrieve image file location from specified source
 
-                    if (currentWindowWidth == 1280)//800*1280
-                    {
-                        top = '1024px';
-                    }
-                    else {
-                        top = '380px';          //800*480
+          }
 
-                    }
-                    break;
+          /* on selection of photo passing imageURI for uploading */
+          function onPhotoURISuccess(imageURI) {
 
-                case 640:
-              
-                    if (currentWindowWidth == 400)  //400*640
-                    {
-                        top = '520px';
-                    }
-                       else if (currentWindowWidth == 384)  //384*640
-                    {
-                        top = '415px';
-                     }
-                    else {
-                  
-                        top = '500px';           //360*640
-                    }
-                    break;
+              var largeImage = document.getElementById('profile');
+              largeImage.src = "data:image/png;base64," + imageURI;
+              imageURL = imageURI;
+              flagProfile = 1;
+          }
 
-             
-                case 768:
-                    {
-                        top = '500px'          //768 *1024
-                    }
-                    break;
-                case 1024:
 
-                    {
-                        top = '445px'          //1024 *768
-                    }
-                    break;
 
-                case 600:
-                    {
-                        top = '490px'          //1024 *600
-                    }
-                    break;
+          function onFail(message) {
+              //  alert('Failed because: ' + message);
+          }
 
-                case 540:
-                    {
-                        top = '485px'          //540 *960
-                    }
-                    break;
-                case 360:
-                    if (currentWindowWidth == 600)     //360*600
-                    {
-                        top = '485px';
-                    }
-                    else {
-                        top = '440px';       //360*640
-                    }
-                    break;
-                case 360:
-                    if (currentWindowWidth == 480)   //360*480
-                    {
-                        top = '485px'
-                    }
-                    break;
-                default:
-                    {
-                        top = '390px';
-                    }
-                    topFlag = 1;
-            }
-        });
+
+
+
+
+          $(document).ready(function () {
+              localStorage.setItem("MenuFlag", "up");
+
+
+              var flag = 0;
+              var top;
+              var topFlag = 0;
+              GetUserPost();
+              GetUserProfile();
+              var currentWindowHeight = $(window).height();   // returns height of browser viewport
+              var currentWindowWidth = $(window).width(); // returns height of HTML document
+
+
+
+              $("#uploadButtonVideoImages").on("click", function () {
+
+                  $("#uploadScreen").css("display", "block");
+
+              });
+              $("#nextUpload").on("click", function () {
+
+                  //InsertPostImage(imageURLs);
+                  uploadPhoto(path);
+
+              });
+
+
+              $("#cancelUpload").on("click", function () {
+
+                  $("#uploadScreen").css("display", "none");
+
+              });
+
+
+
+              $("#logout").on("click", function () {
+                  localStorage.clear();
+                  window.location.replace("login.html");
+              });
+
+
+              $(".right-top-btn").on("click", function () {
+                  if (flag == 0) {
+                      $(".profile-menu").css("display", "block");
+                      flag = 1;
+                  }
+                  else {
+                      $(".profile-menu").css("display", "none");
+                      flag = 0;
+                  }
+              });
+
+              $(".menu_btn_top").bind('click', function () {
+                  var flags = localStorage.getItem("MenuFlag");
+
+                  if (flags == "up") {
+
+
+                      $('.inner-pages').animate({
+                          'top': top    //moves up
+
+                      });
+
+                      localStorage.setItem("MenuFlag", "down");
+                  }
+                  else {
+
+
+                      $('.inner-pages').animate({
+                          'top': "0px" //moves up
+                      });
+                      localStorage.setItem("MenuFlag", "up");
+                  }
+
+              });
+
+
+
+
+              switch (currentWindowHeight) {
+                  case 320:                   //320 *480
+
+                      {
+                          top = '380px';
+
+
+                      }
+                      break;
+
+                  case 568:
+                      if (currentWindowWidth == 320)  //320*568
+                      {
+                          top = '440px';
+
+                      }
+                      break;
+
+                  case 480:
+
+                      if (currentWindowWidth == 320)//480*320
+                      {
+                          top = '345px';
+
+                      }
+                      else {
+                          top = '420px';          //480* 800
+                      }
+                      break;
+
+                  case 800:
+
+                      if (currentWindowWidth == 1280)//800*1280
+                      {
+                          top = '1024px';
+                      }
+                      else {
+                          top = '380px';          //800*480
+
+                      }
+                      break;
+
+                  case 640:
+
+                      if (currentWindowWidth == 400)  //400*640
+                      {
+                          top = '520px';
+                      }
+                      else if (currentWindowWidth == 384)  //384*640
+                      {
+                          top = '415px';
+                      }
+                      else {
+
+                          top = '500px';           //360*640
+                      }
+                      break;
+
+
+                  case 768:
+                      {
+                          top = '500px'          //768 *1024
+                      }
+                      break;
+                  case 1024:
+
+                      {
+                          top = '445px'          //1024 *768
+                      }
+                      break;
+
+                  case 600:
+                      {
+                          top = '490px'          //1024 *600
+                      }
+                      break;
+
+                  case 540:
+                      {
+                          top = '485px'          //540 *960
+                      }
+                      break;
+                  case 360:
+                      if (currentWindowWidth == 600)     //360*600
+                      {
+                          top = '485px';
+                      }
+                      else {
+                          top = '440px';       //360*640
+                      }
+                      break;
+                  case 360:
+                      if (currentWindowWidth == 480)   //360*480
+                      {
+                          top = '485px'
+                      }
+                      break;
+                  default:
+                      {
+                          top = '390px';
+                      }
+                      topFlag = 1;
+              }
+          });
 
     </script>
     <script type="text/javascript">
