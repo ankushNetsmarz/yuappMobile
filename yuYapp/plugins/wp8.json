@@ -27,6 +27,18 @@
                         {
                             "xml": "<feature name=\"Capture\"><param name=\"wp-package\" value=\"Capture\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Toast\"><param name=\"wp-package\" value=\"Toast\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"wp-package\" value=\"InAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"wp-package\" value=\"NetworkStatus\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -53,6 +65,14 @@
                         {
                             "xml": "<Capability Name=\"ID_CAP_MICROPHONE\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<Capability Name=\"ID_CAP_NETWORKING\" />",
+                            "count": 3
+                        },
+                        {
+                            "xml": "<Capability Name=\"ID_CAP_LOCATION\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -76,6 +96,18 @@
             "PACKAGE_NAME": "{486E35B7-9CCE-41E0-BD40-E6B02A57327C}"
         },
         "org.apache.cordova.media-capture": {
+            "PACKAGE_NAME": "{486E35B7-9CCE-41E0-BD40-E6B02A57327C}"
+        },
+        "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "{486E35B7-9CCE-41E0-BD40-E6B02A57327C}"
+        },
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "{486E35B7-9CCE-41E0-BD40-E6B02A57327C}"
+        },
+        "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "{486E35B7-9CCE-41E0-BD40-E6B02A57327C}"
+        },
+        "org.apache.cordova.network-information": {
             "PACKAGE_NAME": "{486E35B7-9CCE-41E0-BD40-E6B02A57327C}"
         }
     },

@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -19,49 +19,52 @@
 <body>
     <div class="loader-bg" style="display: none; z-index: 50">
         <div class="loader-area">
-            <img src="images/482.GIF"></div>
-    </div>
+            <img src="images/482.GIF"></div>    </div>
 
     <!-- when click on comment button in word wall screen then this div will display -->
     <div id="commentPopup" class="comment-bg" style="display: none; z-index: 49">
         <div class="comment-area">
+        <div class="cross-main-btn">
+                <input type="button" id="cancelCommentBox" class="cross-btn" value=""></div>
             <div class="comment-head">
-                <input type="text" id="InsertStatusTextBoxComments" placeholder="Enter your status" class="post-input">
+                <input type="text" id="InsertStatusTextBoxComments" placeholder="Write a Comment" class="post-input">
                 <input type="button" id="postComments" class="like-btn" value="Comment">
             </div>
             <div class="comment-list">
+            <img src="images/no-comment.png">
             </div>
-            <div class="cancel-btn">
-                <input type="button" id="cancelCommentBox" class="like-btn" value="Cancel"></div>
         </div>
     </div>
     <!-- comment screen end -->
 
     <!-- add annotation screen -->
-    <div id="" class="full-annotate-bg" style="display: none; z-index: 49">
+    <div id="postStatusPopup" class="full-annotate-bg" style="display: none; z-index: 49">
         <div class="full-annotate-area">
+        <div class="cross-main-btn">
+                <input type="button" id="crossStatus" class="cross-btn fl" value="">
+                <input type="button" id="postNext" class="like-btn fr" value="Post">
+                <div class="clr"></div>
+                </div>
             <div class="full-annotate-head">
-                <h3>Fill Your Own Annotations</h3>
+            <h3>Upload Status</h3>
+                <textarea cols="30" id="popupInsertTextBox" rows="4"></textarea>
+               <input type="text" class="fr" placeholder="Enter your status" style="display:none;">
             </div>
             <div class="full-annotate-list">
                 <div class="single-full-annotate">
                     <label>
-                        <span class="fl">First Annotate</span>
-                        <input type="text" class="fr" placeholder="Enter your status" id="Text1">
+                        <span class="fl annotate2-span">First Annotate</span>
+                        <input type="text" class="fr" placeholder="" id="firstAnnotate">
                         <div class="clr"></div>
                     </label>
                 </div>
                 <div class="single-full-annotate">
                     <label>
-                        <span class="fl">Second Annotate</span>
-                        <input type="text" class="fr" placeholder="Enter your status" id="Text2">
+                        <span class="fl annotate1-span">Second Annotate</span>
+                        <input type="text" class="fr" placeholder="" id="SecondAnnotate">
                         <div class="clr"></div>
                     </label>
                 </div>
-            </div>
-            <div class="cancel-btn">
-                <input type="button" id="Button1" class="like-btn" value="Cancel">
-                <input type="button" id="Button2" class="like-btn" value="Add Annotate">
             </div>
         </div>
     </div>
@@ -69,66 +72,138 @@
 
   <div id="uploadScreen" class="upload-popup-bg" style="display:none; z-index:49">
 <div class="upload-popup-area">
+
+<div class="cross-main-btn">
+                <input type="button" id="cancelUpload" class="cross-btn fl" value="">
+                <input type="button"  id="nextUpload" class="like-btn fr" value="Next">
+                <div class="clr"></div>
+                </div>
 <div class="upload-popup-head">
 <h3>Upload Gallery</h3>
 </div>
 <div class="upload-popup-list">
 <div class="pic-btn">
-<div class="display-pic"> <img id="UploadPreview" src=""></div>
+<div class="display-pic"><img id="UploadPreview" src="">
+    <div class="video" style="display:none">
+                        <video width="298" height="140" controls>
+                            <source id="video" src="" type="video/mp4">
+                        </video>
+                    </div>
+</div>
 <div>
 <input type="button"  id="UploadImageButton" onclick="getUploadPhoto(pictureSource.PHOTOLIBRARY);" class="upload-gall-btn" value="Images">
-<input type="button"  id="UploadVideoButton"  onclick="getVideo();" class="upload-gall-btn" value="Videos">
+<input type="button"  id="UploadVideoButton" onclick="getVideo()" class="upload-gall-btn" value="Videos">
 </div>
 </div>
 <div class="single-upload-popup">
 <label>
-<span class="fl">Add Title</span>
+<span class="fl title-span">Title</span>
 <input type="text" class="fr" placeholder="" id="UploadTitle">
   <div class="clr"></div>
 </label>
 </div>
 <div class="single-upload-popup">
 <label>
-<span class="fl">Add Discription</span>
+<span class="fl desc-span">Discription</span>
 <input type="text" class="fr" placeholder="" id="UploadDescription">
   <div class="clr"></div>
 </label>
 </div>
 <div class="single-upload-popup">
 <label>
-<span class="fl">Add First Annotate</span>
+<span class="fl annotate2-span">First Annotate</span>
 <input type="text" class="fr" placeholder="" id="Upload1Annotate">
   <div class="clr"></div>
 </label>
 </div>
 <div class="single-upload-popup">
 <label>
-<span class="fl">Add Second Annotate</span>
+<span class="fl annotate1-span">Second Annotate</span>
 <input type="text" class="fr" placeholder="" id="Upload2Annotate">
   <div class="clr"></div>
 </label>
 </div>
 </div>
-<div class="cancel-btn">
-<input type="button"  id="nextUpload" class="like-btn" value="Next">
-<input type="button"  id="cancelUpload" class="like-btn" value="Cancel"></div>
+<div class="camera-bg-main" style="display:none">
+<div class="camera-btn">
+<input type="button"  id="" class="like-btn" value="Camera">
+<input type="button"  id="" class="like-btn" value="Gallery">
+</div>
+</div>
 </div>
 </div>
 <!-- upload gallery popup end -->
 
+<!-- see other user profile in popup screen -->
+    <div id="seeUserProfile" class="see-prof-bg" style="display:none; z-index: 49">
+        <div class="see-prof-area">
+            <div class="cross-main-btn">
+                <input type="button" id="crossUserProfile" class="cross-btn" value=""></div>
+                    <div class="profile-pic">
+                        <img id="" src=""></div>
+                    <div id="seeStatus" class="see-status"></div>
+                    
+                    <div class="see_prof"><form>
+
+<div class="see-pro-field"><label>
+<span class="fl first-span">Full Name</span><input id="SeefullName" type="text" class="fr" disabled>
+<div class="clr"></div>
+</label></div>
+
+<div class="see-pro-field"><label>
+<span class="fl scnd-span">User Name</span><input id="SeeUserName" type="text" class="fr" disabled>
+<div class="clr"></div>
+</label></div>
+
+<div class="see-pro-field"><label>
+<span class="fl email-span">Email</span><input id="SeeEmail" type="email" class="fr" disabled>
+<div class="clr"></div>
+</label></div>
+
+<div class="see-pro-field"><label>
+<span class="fl DOB-span">DOB</span><input id="seeDOB" type="text" class="fr" disabled>
+<div class="clr"></div>
+</label></div>
+
+<div class="see-pro-field"><label>
+<span class="fl gender-span">Gender</span><input id="SeeGender" class="see_popup_box" type="text" disabled>
+<div class="clr"></div>
+</label></div>
+
+<div> 
+</div>
+</form></div>
+                
+            
+        </div>
+    </div>
+    <!-- see other user profile in popup end -->
+
+<!-- when click on next button in add anotation popup then this div will display -->
+    <div id="denied" class="post-user-list" style="display:none; z-index: 49">
+        <div class="post-user-area">
+        <div class="cross-main-btn">
+                <input type="button" id="backAccess" class="back-btn fl" value="">
+                <input type="button"  id="Button2" class="like-btn fr" value="Post">
+                <div class="clr"></div>
+                </div>
+            <div id="postAccess" class="post-user-list-main">
+            </div>
+        </div>
+    </div>
+    <!-- friend list for access or denied screen end -->
+    
 
 <div class="interest-topbar">
 <div class="left-top-btn"><button type="button" class="menu_btn_top"></button></div>
 <div class="top_head_bg"><label class="top_heading">WORD</label></div>
 <div class="right-top-btn">
-<div style="text-align: right;"><a href="#" class="profile-setting"><img src="images/profile-pic.jpg" width="39" height="39"></a></div>
-<div class="profile-menu" style="display:none;">
-<ul>
-<li id="EditProfile">My Profile</li>
-<li id="logout">Logout</li>
-</ul>
+<div style="text-align:right;"><a href="#" class="profile-setting" id="EditProfile"><img id="mainProfile" src="" width="39" height="39"></a>
+<button type="button" class="logout_btn" id="logout"></button>
 </div>
+
 <div class="clr"></div>
+
     
 </div>
 </div>
@@ -152,7 +227,7 @@
                 <div id="NotificationOption" class="unselect mid_box">
                     Notification
 
- <span class="notify-badge">5</span>
+ <span class="notify-badge"></span>
 
 
 </div>
@@ -178,16 +253,17 @@
 
 <div class="post-status">
 
-<input id="accessButton" type="button" class="post-btn">
+<!--<input id="accessButton" type="button" class="post-btn">-->
 <input type="text" id="InsertStatusTextBox" placeholder="Enter your status" class="post-input">
 <input type="button"  id="postStatus" class="post-text-btn" value="POST">
-<div class="add-annotation"><a href="#">Add your own Annotation</a></div>
+
 </div>
 
 <div class="list-area">
-
-
-
+<!--<div class="no-data">
+ <img src="images/no-data.png" style="width: 70%; margin: 50px auto 0px;"> 
+ <h4>No any feed found here!</h4>
+</div>-->
 <div class="clr"></div>
 </div>
 
@@ -197,69 +273,72 @@
                 <!-- the edit profile or see profile divs start from below -->
 
                 <div id="edit_profile" style="display: none;">
-                 
+                 <div class="dd">
                     <div class="profile-pic"  onclick="getPhoto(pictureSource.PHOTOLIBRARY);"> <img  id="profile" src=""><div class="change-pic"><img src="images/camera-icon.png"></div>
+                   </div>
                     </div>
-                    <div class="edit_prof_inputs">
-                        <form>
-<div class="single-edt-inpt">
-<input  id="editFirstname"  type="text" placeholder="First Name" class="edit_prof_box" disabled>
-<img src="images/Editing-Edit-icon.png">
+                    
+<div class="edit_prof_inputs"><form>
+
+<div id="Div4" class="see-status"></div>
+
+<div class="edit-pro-field"><label>
+<span class="fl first-span">Full Name</span><input id="editFirstname" type="text" class="fr">
+<div class="clr"></div>
+</label></div>
+
+<div class="edit-pro-field"><label>
+<span class="fl first-span">Last Name</span><input id="editLastname" type="text" class="fr">
+<div class="clr"></div>
+</label></div>
+
+<div class="edit-pro-field"><label>
+<span class="fl scnd-span">User Name</span><input id="editUserName" type="text" class="fr">
+<div class="clr"></div>
+</label></div>
+
+<div class="edit-pro-field"><label>
+<span class="fl DOB-span">DOB</span><input id="editDOB" type="text" class="fr">
+<div class="clr"></div>
+</label></div>
+
+<div class="edit-pro-field"><label>
+<span class="fl gender-span">Gender</span>
+
+<select id="selector"> 
+ <option value="Male">Male</option> 
+ <option  value="Female">Female</option>  
+ </select> 
+<div class="clr"></div>
+</label></div>
+
+<div> 
 </div>
-<div class="single-edt-inpt">
-<input  id="editLastname" type="text" placeholder="Last Name" class="edit_prof_box" disabled>
-<img src="images/Editing-Edit-icon.png">
-</div>
-<div class="single-edt-inpt">
-<input  id="editUserName" type="text" placeholder="User Name" class="edit_prof_box" disabled>
-<img src="images/Editing-Edit-icon.png">
-</div>
-<div class="single-edt-inpt">
-<input id="editDOB" placeholder="DOB" class="edit_prof_box" disabled>
-<img src="images/Editing-Edit-icon.png">
-</div>
-<div class="single-edt-inpt">
-<input id="editGender"  placeholder="Gender" class="edit_prof_box" disabled>
-<img src="images/Editing-Edit-icon.png">
-</div>
+</form></div>
+
 <div>
-<input type="button" id="updateButton" class="edit-prof-btn" value="UPDATE" /></div>
-</form>
+<input type="button" id="updateButton" class="edit-prof-btn fr" value="UPDATE" />
+<div class="clr"></div>
+</div>
+
                     </div>
-                </div>
 
-
-                <!--<div id="see_profile" style="display: none;">
-                    <div class="profile-pic">
-                        <img id="profilePicture" src=""></div>
-                    <div id="seeStatus" class="see-status"></div>
-                    <div class="see_prof">
-                        <form>
-                            <div>
-                                <input id="SeefullName" type="text" placeholder="Full Name" class="edit_prof_box" disabled></div>
-                            <div>
-                                <input id="SeeUserName" type="text" placeholder="User Name" class="edit_prof_box" disabled></div>
-                            <div>
-                                <input id="SeeEmail" type="email" placeholder="Email Address" class="edit_prof_box" disabled></div>
-                            <div>
-                                <input id="SeeDOB" placeholder="DOB" class="edit_prof_box" disabled></div>
-                            <div>
-                                <input id="SeeGender" placeholder="Gender" class="edit_prof_box" disabled></div>
-
-                        </form>
-                    </div>
-                </div>-->
                 <!-- the edit profile or see profile divs ends here -->
 
 
                 <div class="follow-friend" style="display: none;">
+                
                     <div id="TabbedPanels1" class="TabbedPanels">
+                     <div class="dd">
                         <ul class="TabbedPanelsTabGroup">
                             <li id="getFollowers" class="TabbedPanelsTab" tabindex="0">Your Followers</li>
                             <li id="GetFollowingList" class="TabbedPanelsTab" tabindex="0">Who You Following</li>
                         </ul>
+                         </div>
                         <div class="TabbedPanelsContentGroup">
+                        <div class="dd">
                             <div class="TabbedPanelsContent">
+                           
                                 <div class="swiper-nav swiper-container">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide" id="recentFollower"><span>Recent</span></div>
@@ -269,10 +348,8 @@
                                 </div>
                                 <div id="getfollowerList" class="frnd-list-main">
                                 </div>
-                                <div>
-                                    <input type="button" id="Button3" class="load-more" value="Load More" />
-                                    <input type="button" id="doneButton" class="load-more" value="Done" style="display: none;" />
-                                </div>
+                                
+                            </div>
                             </div>
                             <div class="TabbedPanelsContent">
                                 <div class="swiper-nav swiper-container">
@@ -284,10 +361,7 @@
                                 </div>
                                 <div id="getfollowingLists" class="frnd-list-main">
                                 </div>
-                                <div>
-                                    <input type="button" id="loadMore" class="load-more" value="Load More" />
-                                    <input type="button" id="doneButtons" class="load-more" value="Done" style="display: none;" />
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -295,10 +369,10 @@
 
                 <div class="notification" style="display: none;">
                     <div class="notify-area">
-                        <div id="Div1" class="notify-list">
+                        <div id="Div5" class="notify-list">
                         </div>
-                        <div>
-                            <input type="button" id="Button4" class="load-more" value="Load More" /></div>
+                        <!--<div>
+                            <input type="button" id="Button4" class="load-more" value="Load More" /></div>-->
                     </div>
                 </div>
 
@@ -307,20 +381,28 @@
 
                 <div id="YAPP-Live" class="YAPP-Live" style="display: none;">
 
-                    <div class="post-status">
-                        <select class="select-ctgry">
-                            <option>All</option>
-                            <option>Images</option>
-                            <option>Videos</option>
-                        </select>
+                    <div  class="post-status">
+                        <div  class="dd">
+                        <div  class="swiper-nav swiper-container swip-width">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide" id="AllPosts"><span>All</span></div>
+                                        <div class="swiper-slide" id="ImagePost"><span>Images</span></div>
+                                        <div class="swiper-slide" id="VideoPost"><span>Videos</span></div>
+
+                                    </div>
+                                </div>
                         <input id="uploadButtonVideoImages" type="button" class="Upload-text-btn">
+                            </div>
                     </div>
 
+
                     <div id="TabbedPanels3" class="TabbedPanels">
+                     <div  class="dd">
                         <ul class="TabbedPanelsTabGroup">
-                            <li class="TabbedPanelsTab" tabindex="0">All Uploads</li>
-                            <li class="TabbedPanelsTab" tabindex="0">My Uploads</li>
+                            <li class="TabbedPanelsTab" tabindex="0" id="AllUploads">All Uploads</li>
+                            <li class="TabbedPanelsTab" tabindex="0" id="MyUploads">My Uploads</li>
                         </ul>
+                         </div>
                         <div class="TabbedPanelsContentGroup">
                             <div class="TabbedPanelsContent">
 
@@ -347,46 +429,89 @@
 
                 </div>
                 <!-- YAPP Live screen ends here -->
+                
+                 <!-- Shh... screen start here -->
+
+                <div class="shh-screen" style="display: none;">
+                  
+                  <div class="generateKey">
+                  <h4 class="fl">Welcome! <span>jgkj4654</span></h4>
+                  <a href="#" class="fr"><img src="images/key-icon.png">&nbsp;Generate Key</a>
+                  <div class="clr"></div>
+                  </div>
+                  
+                    <div class="post-status">
+                      <div  class="dd">
+                        <div class="swiper-nav swiper-container swip-width">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide" id="allAnony"><span>All</span></div>
+                                        <div class="swiper-slide" id="ImageAnony"><span>Images</span></div>
+                                        <div class="swiper-slide" id="VideoAnony"><span>Videos</span></div>
+
+                                    </div>
+                                
+                                </div>
+                        <input id="Button5" type="button" class="Upload-text-btn">
+                        </div>
+                    </div>
+
+                    <div id="TabbedPanels4" class="TabbedPanels">
+                       <div  class="dd">
+                        <ul class="TabbedPanelsTabGroup">
+                            <li class="TabbedPanelsTab" tabindex="0" id="worldwide">Worldwide</li>
+                            <li class="TabbedPanelsTab" tabindex="0" id="nearYou">Near You</li>
+                        </ul>
+                        </div>
+                        <div class="TabbedPanelsContentGroup">
+                            <div class="TabbedPanelsContent">
+
+                                <div class="upload-list-main">
+                                    <div class="secret-list-area">
+                                   
+                                    </div>
+
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                            <div class="TabbedPanelsContent">
+                                <div class="upload-list-main">
+                                    <div class="secret-list-area">
+
+
+                                        <div class="clr"></div>
+                                    </div>
+
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Shh..... screen ends here -->
 
                 <!-- add new frends screen start here -->
 
                 <div class="add-frnd" style="display: none;">
+                
+                <div class="add-frnd-list"></div>
 
-                    <div id="TabbedPanels2" class="TabbedPanels">
-                        <ul class="TabbedPanelsTabGroup">
-                            <li class="TabbedPanelsTab" tabindex="0">Plug List</li>
-
-                            <li class="TabbedPanelsTab" tabindex="0">People Map</li>
-
-                        </ul>
-                        <div class="TabbedPanelsContentGroup">
-                            <div class="TabbedPanelsContent">
-                                <div class="add-frnd-list"></div>
-                            </div>
-                            <div class="TabbedPanelsContent">
-
-
-                                <div id="map-canvas"></div>
-
-
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
                 <!-- add new frends screen ends here -->
             </div>
         </div>
         <div class="clr"></div>
+</div>
+        <script src="cordova.js"></script>
+     <script src="js/jquery-2.0.2.js"></script> 
 
-    </div>
-    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="js/jquery-2.0.2.js"></script>
-
+     <script src="js/ajaxWebService.js"></script>
+    <script src="js/connection.js"></script>
     <script src="js/like.js"></script>
-
+    <script src="js/shh.js"></script>
     <script src="js/getNotification.js"></script>
-    <script src="js/ajaxWebService.js"></script>
+    <script src="js/seeuser.js"></script>
     <script src="js/idangerous.swiper-2.0.min.js"></script>
     <script src="js/idangerous.swiper.scrollbar-2.0.js"></script>
     <script src="js/resolution.js"></script>
@@ -400,30 +525,72 @@
     <script src="js/getImageVideoPost.js"></script>
     <script src="js/InsertImageVideo.js"></script>
     <script src="js/getPost.js"></script>
-    <script src="cordova.js"></script>
+       <script src="js/ProfilePicture.js"></script>
+       
 
 
       <script>
+          var webservicesiteurl = "http://174.141.233.6/YuY/";
+          // var webservicesiteurl = "http://174.141.233.6/YuY_Demo/";
+          var userId = localStorage.getItem("userId");
+          var UploadFileFlag;
           var pictureSource;   // picture source
           var destinationType; // sets the format of returned value 
           var imageURL, imageURLs;
           var flagProfile = 0;
           var i, path, len, mediaFiles;
+
+
+
+
+
+
+
+
           document.addEventListener("deviceready", onDeviceReady, false);
 
           function onDeviceReady() {
+
+
+
+            checkConnection();
               pictureSource = navigator.camera.PictureSourceType;
               destinationType = navigator.camera.DestinationType;
-          }
+                  }
 
+
+     
+
+
+          $("#updateButton").on("click", function () {
+              var editFirstname = $("#editFirstname").val();
+              var editLastname = $("#editLastname").val();
+              var editUserName = $("#editUserName").val();
+              var editDOB = $("#editDOB").val();
+              // alert($("#selector").val());
+              var editGender = $("#selector").val()
+
+              if (flagProfile == 1) {
+                  AddProfilePicture(imageURL);
+                  var GetProfilePicture = localStorage.getItem("ProfilePicUrl");
+
+                  $("#mainProfile,#profile").prop('src', GetProfilePicture + "?v=" + (new Date().getTime()));
+              }
+              else {
+                  UpdateProfile(editFirstname, editLastname, editUserName, editDOB, editGender);
+              }
+              //   return false;
+          });
 
           var captureSuccess = function (mediaFiles) {
 
               for (i = 0, len = mediaFiles.length; i < len; i += 1) {
                   path = mediaFiles[i].fullPath;
-                  //   flag = true;
-                  //  $("#video").parent().prop('src', path);
 
+                  UploadFileFlag = "video";
+                  $("#UploadPreview").hide();
+                  $(".video").css("display", "block");
+                  $("#video").parent().prop('src', path);
               }
           };
 
@@ -433,30 +600,35 @@
           };
 
 
-          function uploadPhoto(path) {
-
+          function uploadPhoto(path,UncheckedUser) {
+              showLoader();
               var title = $("#UploadTitle").val();
               var description = $("#UploadDescription").val();
               var a1 = $("#Upload1Annotate").val();
               var a2 = $("#Upload2Annotate").val();
 
+              var anony = localStorage.getItem("isAnonymous");
 
               var options = new FileUploadOptions();
               options.fileKey = "file";
-
+              if(anony==1)
+      		{
+      		UncheckedUser="";
+      		}
 
               options.fileName = path.substr(path.lastIndexOf('/') + 1) + '.mp4';
 
               options.mimeType = "video/mp4";
 
               var params = {};
-              params.postedBy = 1;
+              params.postedBy = userId;
 
               params.description = description;
               params.postFileTitle = title;
               params.allowedUser = "";
-              params.deniedUser = "";
+              params.deniedUser = UncheckedUser;
               params.postType = 2;
+              params.isanonymous = anony;
               params.positiveAnnotation = a1;
               params.negativeAnnotation = a2;
               params.extention = "";
@@ -466,7 +638,8 @@
 
               var ft = new FileTransfer();
 
-              ft.upload(path, encodeURI("http://174.141.233.6/YuY/posts/add"), win, fail, options);
+              ft.upload(path, encodeURI(webservicesiteurl + "posts/add"), win, fail, options);
+
           }
 
           function win(r) {
@@ -476,6 +649,16 @@
               console.log("Response = " + r.response);
               console.log("Sent = " + r.bytesSent);
 
+
+              hideLoader();
+              $("#UploadTitle").val('');
+              $("#UploadDescription").val('');
+              var isall = true;
+              var posttype = 0;
+              var start = 1;
+              var end = 10;
+              $("#uploadScreen").css("display", "none");
+              GetPostNonAnonymousList(isall, posttype, start, end);
           }
 
           function fail(error) {
@@ -505,12 +688,15 @@
 
               });
           }
+
           function onPhotoURISuccessUpload(imageURI) {
 
               var Image = document.getElementById('UploadPreview');
               Image.src = "data:image/png;base64," + imageURI;
               imageURLs = imageURI;
-
+              UploadFileFlag = "image";
+              $("#UploadPreview").show();
+              $(".video").css("display", "none");
           }
 
           / * opens default gallery of native system, i.e android or iphone */
@@ -530,7 +716,8 @@
           function onPhotoURISuccess(imageURI) {
 
               var largeImage = document.getElementById('profile');
-              largeImage.src = "data:image/png;base64," + imageURI;
+
+              largeImage.src = "data:image/png;base64," + imageURI;//+"?v="+(new Date().getTime());
               imageURL = imageURI;
               flagProfile = 1;
           }
@@ -547,27 +734,135 @@
 
           $(document).ready(function () {
               localStorage.setItem("MenuFlag", "up");
-
+        
 
               var flag = 0;
               var top;
               var topFlag = 0;
-              GetUserPost();
+              newcall();
+              localStorage.setItem("page", "wordWall");
+              var start = localStorage.getItem("start");
+              var end = localStorage.getItem("end");
+              GetUserPost(start, end);
+              GetNotificationCount();
               GetUserProfile();
               var currentWindowHeight = $(window).height();   // returns height of browser viewport
               var currentWindowWidth = $(window).width(); // returns height of HTML document
 
 
 
-              $("#uploadButtonVideoImages").on("click", function () {
-
-                  $("#uploadScreen").css("display", "block");
-
+              $(".Upload-text-btn").on("click", function () {
+                  var anony = localStorage.getItem("isAnonymous");
+                  if (anony == 1) {
+                      var anonyId = localStorage.getItem("AnonymousUserId");
+                      if (anonyId == "notset") {
+                          window.plugins.toast.show('Generate a key!', 'long', 'center', function (a) { }, function (b) { });
+                      }
+                      else {
+                          $("#uploadScreen").css("display", "block");
+                      }
+                  }
+                  else {
+                      $("#UploadTitle").val('');
+                      $("#UploadDescription").val('');
+                      $("#Upload1Annotate").val('');
+                      $("#Upload2Annotate").val('');
+                      $("#uploadScreen").css("display", "block");
+                      $("#UploadPreview").prop("src", "");
+                      $(".video").css("display", "none");
+                      $("#UploadPreview").css("display", "block");
+                  }
               });
               $("#nextUpload").on("click", function () {
+                  if ($("#UploadTitle").val() == '') {
 
-                  //InsertPostImage(imageURLs);
-                  uploadPhoto(path);
+                      window.plugins.toast.show('Enter title for a feed!', 'long', 'center', function (a) { }, function (b) { });
+                  }
+                  else if ($("#Upload1Annotate").val() == '') {
+                      window.plugins.toast.show('Enter Annotations for a feed!', 'long', 'center', function (a) { }, function (b) { });
+
+                  }
+
+                  else if ($("#Upload2Annotate").val() == '') {
+                      window.plugins.toast.show('Enter Annotations for a feed!', 'long', 'center', function (a) { }, function (b) { });
+
+                  }
+
+
+                  else if (UploadFileFlag == "image") {
+                      newcall();
+                      var start = localStorage.getItem("start");
+                      var end = localStorage.getItem("end");
+                      localStorage.setItem("page", "allfollowings");
+                      GetAllFollowings(start, end);
+                      localStorage.setItem("item", "nextImage");
+                      $("#denied").css("display", "block");
+                     // InsertPostImage(imageURLs);
+                  }
+                  else if (UploadFileFlag == "video") {
+                      newcall();
+                      var start = localStorage.getItem("start");
+                      var end = localStorage.getItem("end");
+                      localStorage.setItem("page", "allfollowings");
+
+                      GetAllFollowings(start, end);
+                      localStorage.setItem("item", "nextvideo");
+                      $("#denied").css("display", "block");
+                      //uploadPhoto(path);
+                  }
+                  else {
+                      window.plugins.toast.show('Select image or video!', 'long', 'center', function (a) { }, function (b) { });
+
+                  }
+              });
+
+              $(document).on("click", "#Button2", function () {
+
+                  UncheckedUser = "";
+
+                  $(".checks").each(function () {
+                      if (!$(this).is(':checked')) {
+                          UncheckedUser += $(this).attr("Userid") + ",";
+
+                      }
+                  });
+
+                  if (UncheckedUser != "") {
+                      UncheckedUser = UncheckedUser.slice(0, -1);
+                  }
+                  
+                
+                  var item = localStorage.getItem("item");
+                 
+                  if (item == "nextstatus") {
+                      InsertStatus(UncheckedUser);
+                      $("#postStatusPopup").css("display", "none");
+                      $("#denied").css("display", "none");
+                  }
+                  if (item == "nextImage") {
+                	
+                      InsertPostImage(imageURLs,UncheckedUser);
+                    
+                      $("#denied").css("display", "none");
+                  }
+
+                  else {
+                      uploadPhoto(path,UncheckedUser);
+                     
+                      $("#denied").css("display", "none");
+                  }
+                  $("#InsertStatusTextBox").val('');
+                 
+
+              });
+
+              $("#selector").on("click", function () {
+
+                  localStorage.removeItem("gender");
+                  var select = $(this).val();
+
+                  localStorage.setItem("gender", select);
+                  var selection = localStorage.getItem("gender");
 
               });
 
@@ -575,19 +870,41 @@
               $("#cancelUpload").on("click", function () {
 
                   $("#uploadScreen").css("display", "none");
-
+                  GetPostNonAnonymousList();
               });
 
 
 
               $("#logout").on("click", function () {
+
                   localStorage.clear();
                   window.location.replace("login.html");
+                  //function onConfirm(buttonIndex) {
+                  //    if (buttonIndex == 1) {
+
+                  //        localStorage.clear();
+                  //        window.location.replace("login.html");
+                  //    }
+
+
+                  //}
+
+                  //navigator.notification.confirm(
+                  //    'Do you want to logout? ', // message
+                  //     onConfirm,            // callback to invoke with index of button pressed
+                  //    'YUYApp',           // title
+                  //    ['OK', 'CANCEL']     // buttonLabels
+                  //);
+
+
               });
+
+
 
 
               $(".right-top-btn").on("click", function () {
                   if (flag == 0) {
+                	  
                       $(".profile-menu").css("display", "block");
                       flag = 1;
                   }
@@ -599,27 +916,35 @@
 
               $(".menu_btn_top").bind('click', function () {
                   var flags = localStorage.getItem("MenuFlag");
-
+                
                   if (flags == "up") {
-
-
+                    
+                    
                       $('.inner-pages').animate({
                           'top': top    //moves up
 
                       });
-
+                      $(".dd").css("display", "none");
                       localStorage.setItem("MenuFlag", "down");
+                      
                   }
                   else {
-
-
+                   
+                    
+                      //$(".post-status").css("display", "none");
+                     
                       $('.inner-pages').animate({
                           'top': "0px" //moves up
                       });
+                      $(".dd").css("display", "block");
                       localStorage.setItem("MenuFlag", "up");
+                  
+                  
                   }
 
               });
+
+
 
 
 
@@ -711,14 +1036,18 @@
                       {
                           top = '485px';
                       }
+                      else if (currentWindowWidth == 480)   //360*480
+                      {
+                          top = '485px'
+                      }
                       else {
                           top = '440px';       //360*640
                       }
                       break;
-                  case 360:
-                      if (currentWindowWidth == 480)   //360*480
+                  case 615:
+                      if (currentWindowWidth == 360)     //360*615
                       {
-                          top = '485px'
+                          top = '485px';
                       }
                       break;
                   default:
@@ -728,16 +1057,13 @@
                       topFlag = 1;
               }
           });
-
+    </script>
+    <script type="text/javascript">
+        var TabbedPanels4 = new Spry.Widget.TabbedPanels("TabbedPanels4");
     </script>
     <script type="text/javascript">
         var TabbedPanels3 = new Spry.Widget.TabbedPanels("TabbedPanels3");
     </script>
-
-    <script type="text/javascript">
-        var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2");
-    </script>
-
     <script type="text/javascript">
         var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
     </script>
@@ -745,3 +1071,4 @@
 
 <script src="js/jquery.min.js"></script>
 </html>
+

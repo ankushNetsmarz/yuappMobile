@@ -1,71 +1,93 @@
 ﻿
 
 $("#postStatus").on("click", function () {
-    InsertStatus();
-  
+
+
+
+    var post = $("#InsertStatusTextBox").val();
+
+    if (post != "") {
+        $("#firstAnnotate").val('');
+        $("#SecondAnnotate").val('');
+        $("#postStatusPopup").css("display", "block");
+        $("#popupInsertTextBox").val(post);
+    }
+    else {
+        window.plugins.toast.show('Enter your status!', 'long', 'center', function (a) { }, function (b) { });
+    }
+
 });
 
-//function InsertStatus() {
-//    var postData = {
-//        postedBy: "10", /*user who Post the status or the Post */
-//        postFileTitle: "Posted By 10", //This is for both Post and status/
-//        allowedUser: "5,6,7",
-//        deniedUser: "8,9",
-//        postType: "0", //0 for Status, 1 for the Image, 2 for VIdeo/
-//    // method: 1 /* 1 for Like Dislike, 2 for Hate Love, 3 for Agree Disagree */
-//        positiveAnnotation: "",
-//        negativeAnnotation: ""
-//};
-//$.ajax({
-//    type: "POST",
-//    url: "http://localhost:6269/posts/add",
-//    //url: "http://174.141.233.6/YuY/posts/add",
-//    data: postData,
-//    success: function (data) {
-//        debugger;
-//        console.log(data);
-//        //alert("success..." + data);
-//    },
-//    error: function (xhr) {
-//        debugger;
-//        alert(xhr.responseText);
-//    }
-//});
-//}
 
+$("#postNext").on("click", function () {
+    
 
+     if ($("#firstAnnotate").val() == '') {
+       window.plugins.toast.show('Enter Annotations for a feed!', 'long', 'center', function (a) { }, function (b) { });
+
+      }
+
+     else  if ($("#SecondAnnotate").val() == '') {
+        window.plugins.toast.show('Enter Annotations for a feed!', 'long', 'center', function (a) { }, function (b) { });
+
+     }
+      else
+        {
+    newcall();
+    var start = localStorage.getItem("start");
+    var end = localStorage.getItem("end");
+    localStorage.setItem("page", "allfollowings");
+    GetAllFollowings(start, end);
+    $("#denied").css("display", "block");
+    localStorage.setItem("item", "nextstatus");
+   }
+});
+
+$("#crossStatus").on("click", function () {
+    $("#InsertStatusTextBox").val('');
+    $("#postStatusPopup").css("display", "none");
+
+});
 
 /*Insert user post*/
-var userId= localStorage.getItem("userId");
+var userId = localStorage.getItem("userId");
 
-function InsertStatus() {
-    
+function InsertStatus(UncheckedUser) {
+
     var postData = {
         postedBy: userId, /*user who Post the status or the Post */
-        postFileTitle: $("#InsertStatusTextBox").val(), /*This is for both Post and status*/
+        postFileTitle: $("#popupInsertTextBox").val(), /*This is for both Post and status*/
         allowedUser: "0",
         description: "",
-        deniedUser: "0",
+        deniedUser: UncheckedUser,
         postType: "0",/*0 for Status, 1 for the Image,  2 for VIdeo*/
-        positiveAnnotation: "hate",
-        negativeAnnotation: "love"
+        positiveAnnotation: $("#firstAnnotate").val(),
+        negativeAnnotation: $("#SecondAnnotate").val()
     };
     $.ajax({
         type: "POST",
         beforeSend: showLoader(),
-    //    url: "http://localhost:6269/posts/add",
-        url: "http://174.141.233.6/YuY/posts/add",
+        //    url: "http://localhost:6269/posts/add",
+        url: webservicesiteurl + "posts/add",
         data: postData,
         success: function (data) {
-            GetUserPost();
+            newcall();
+            var start = localStorage.getItem("start");
+            var end = localStorage.getItem("end");
+            $("#postStatusPopup").css("display", "none");
+            GetUserPost(start, end);
+
 
             $("#InsertStatusTextBox").val('');
-           
+            window.plugins.toast.show('Feed Added!', 'long', 'center', function (a) { }, function (b) { });
+
+
             //alert("success..." + data);
         },
         error: function (xhr) {
-          
-            alert(xhr.responseText);
+
+            hideLoader();
+            // alert(xhr.responseText);
         }
     }).done(function () {
         hideLoader();
@@ -74,9 +96,14 @@ function InsertStatus() {
 
 
 
+$(document).on("click", "#backAccess", function () {
+    $("#denied").css("display", "none");
+    $("#postStatusPopup").css("display", "block");
+});
 
 /*Add comment on the post*/
 function InsertPostComment(postIdForComment) {
+    //checkConnection();
     var commentMessage = $("#InsertStatusTextBoxComments").val();
 
     var postData = {
@@ -87,18 +114,28 @@ function InsertPostComment(postIdForComment) {
     $.ajax({
         type: "Post",
         beforeSend: showLoader(),
-       // url: "http://localhost:6269/posts/addcomments",
-        url: "http://174.141.233.6/YuY/posts/AddComments",
+        // url: "http://localhost:6269/posts/addcomments",
+        url: webservicesiteurl + "posts/AddComments",
         data: postData,
         success: function (data) {
-       
+
             console.log(data);
-            GetPostComments(postIdForComment);
+            $("#InsertStatusTextBoxComments").val('');
+
+            newcall();
+            var start = localStorage.getItem("start");
+            var end = localStorage.getItem("end");
+            var postId = localStorage.getItem("postId");
+            GetPostComments(postId, start, end);
+
+            //  localStorage.setItem("span","comment")
+
             //alert("success..." + data);
         },
         error: function (xhr) {
-          
-            alert(xhr.responseText);
+            checkConnection();
+            hideLoader();
+            // alert(xhr.responseText);
         }
     }).done(function () {
         hideLoader();

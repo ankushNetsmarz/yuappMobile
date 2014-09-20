@@ -2,13 +2,10 @@
 var userId = localStorage.getItem("userId");
 /*Add Likes on the post*/
 function addLikes(postId) {
-  
+	//checkConnection();
     var likeStatus = localStorage.getItem("like");
     var clickStatus= localStorage.getItem("click");
-    //alert(postId);
-    //alert(userId);
-    //alert(likeStatus);
-    //alert(clickStatus);
+    
     var postData = {
         postId: postId,
         userId: userId,
@@ -18,20 +15,20 @@ function addLikes(postId) {
     };
     $.ajax({
         type: "Post",
+        beforeSend: showLoader(),
      //   url: "http://localhost:6269/posts/addlikes",
-        url: "http://174.141.233.6/YuY/posts/addlikes",
+        url: webservicesiteurl + "posts/addlikes",
         data: postData,
         success: function (data) {
         
-            console.log(data);
-
-            GetUserPost();
-            GetPostNonAnonymousList();
-            //alert("success..." + data);
+            console.log(data);                             
         },
         error: function (xhr) {
-          
-            alert(xhr.responseText);
+        	checkConnection();
+        	 hideLoader();
+             // alert(xhr.responseText);
         }
+    }).done(function () {
+        hideLoader();
     });
 }

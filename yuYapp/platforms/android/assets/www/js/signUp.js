@@ -1,7 +1,8 @@
 ﻿
 $('#SignUpEmail').blur(function () {
 
-    if ($(this).val() == "") {
+    if ($(this).val() == "")
+    {
 
     }
     else
@@ -9,6 +10,37 @@ $('#SignUpEmail').blur(function () {
         ValidateEmail();
     }
 });
+$("#SignUpDOB").on("click", function () {
+	var date;
+    var options = {    		
+  	date: new Date(),
+    mode: 'date',
+   
+    	 };			
+       datePicker.show(options, function(date){
+   	  //  alert("date result " + date);  
+    	 
+   		 date= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear(); 
+   		 localStorage.setItem("date",date);
+     
+      });
+      		
+           
+});
+
+$( "#SignUpDOB" ).focus(function() {
+	 var dates= localStorage.getItem("date");
+
+   if(dates=="NaN/NaN/NaN")
+	   {
+	   $(this).val(''); 
+	   }
+   else
+	   {
+    $(this).val(dates); 
+	   }
+});
+
 
 $("#signUpButton").on("click", function () {
     //  $(".signup_inputs, .registerpage_btns, .signup-logo").css("display", "block");
@@ -20,8 +52,15 @@ $("#signUpButton").on("click", function () {
     $("#signUpDiv").css("display", "block");
 });
 
+$("#selectors").on("click", function () {
+    var select = $(this).val();
+   
+    localStorage.setItem("genderSignUp", select);
+});
 
 $("#backButtonRegister").on("click", function () {
+	$("#userLoginEmailId").val('');
+	$("#userLoginPassword").val('');
     $("#SignUpFullName, #SignUpPassword, #SignUpDOB, #SignUpgender, #SignUpUserName, #SignUpEmail").val('');
    
  
@@ -37,6 +76,22 @@ $("#backButtonRegister").on("click", function () {
 
 
 $("#RegisterButton").on("click", function () {
+	
+	
+	 
+	var Gender= $("#selectors").val();
+	
+	var date=   localStorage.getItem("date");
+	if(date == null)
+	{
+		date = "";
+	}
+	
+	if(Gender == null)
+		{
+		Gender = "Male";
+		}
+	
     var SignUpFullName = $("#SignUpFullName").val();
     var res = SignUpFullName.split(" ");
     var SignUpFirstName = res[0];
@@ -44,17 +99,84 @@ $("#RegisterButton").on("click", function () {
     var SignUpUserName = $("#SignUpUserName").val();
     var SignUpEmail = $("#SignUpEmail").val();
     var SignUpPassword = $("#SignUpPassword").val();
-    var SignUpDOB = $("#SignUpDOB").val();
-    var SignUpgender = $("#SignUpgender").val();
+    var SignUpDOB = date;
+    var SignUpgender = Gender;
+    
+    
+ if(SignUpFullName == '' ) 
+        
+    {
+    	  function alertDismissed() {
 
-    Signup(SignUpFirstName, SignUpLastName, SignUpUserName, SignUpUserName, SignUpEmail, SignUpPassword, SignUpDOB, SignUpgender);
+          }
+
+          navigator.notification.alert(
+			    'First name cannot be empty!',  // message
+			    alertDismissed,         // callback
+			    'YuYAPP',            // title
+			    'OK'                  // buttonName
+			);
+          e.preventDefault();
+    }
+ 
+ if(SignUpUserName == '' ) 
+     
+ {
+ 	  function alertDismissed() {
+
+       }
+
+       navigator.notification.alert(
+			    'User name cannot be empty!',  // message
+			    alertDismissed,         // callback
+			    'YuYAPP',            // title
+			    'OK'                  // buttonName
+			);
+       e.preventDefault();
+ }
+
+ if(SignUpEmail == '' ) 
+     
+ {
+ 	  function alertDismissed() {
+
+       }
+
+       navigator.notification.alert(
+			    'Email address cannot be empty!',  // message
+			    alertDismissed,         // callback
+			    'YuYAPP',            // title
+			    'OK'                  // buttonName
+			);
+       e.preventDefault();
+ }
+
+ if(SignUpPassword == '' ) 
+     
+ {
+ 	  function alertDismissed() {
+
+       }
+
+       navigator.notification.alert(
+			    'Password cannot be empty!',  // message
+			    alertDismissed,         // callback
+			    'YuYAPP',            // title
+			    'OK'                  // buttonName
+			);
+       e.preventDefault();
+ }
+
+    
+
+  Signup(SignUpFirstName, SignUpLastName, SignUpUserName, SignUpUserName, SignUpEmail, SignUpPassword, SignUpDOB, SignUpgender);
 });
 
 
 
 /*Signup the user*/
 function Signup(SignUpFirstName, SignUpLastName, SignUpUserName, SignUpUserName, SignUpEmail, SignUpPassword, SignUpDOB, SignUpgender) {
-    
+	// checkConnection();
     var userData = {
         userName: SignUpUserName,
         email: SignUpEmail,
@@ -69,7 +191,7 @@ function Signup(SignUpFirstName, SignUpLastName, SignUpUserName, SignUpUserName,
         type: "POST",
         // url: "http://localhost:6269/users/signup",
         beforeSend: showLoader(),
-        url: mainUrl + "signup",    
+        url: webservicesiteurl + "Users/signup",
         data: userData,
         success: function (data) {
           
@@ -77,15 +199,18 @@ function Signup(SignUpFirstName, SignUpLastName, SignUpUserName, SignUpUserName,
             if (data.ResponseData != 0)
             {
                 var userId = data.ResponseData;
-                alert(userId);
+               
                 localStorage.setItem("userId", userId);
                 window.location.replace("home.html");
+                window.plugins.toast.show('Registered Successfully!', 'long', 'center', function (a) { }, function (b) { });
+                
             //alert("success..." + data);
             }
         },
         error: function (xhr) {
-         
-            alert(xhr.responseText);
+        	checkConnection();
+        	  hideLoader();
+              // alert(xhr.responseText);
         }
     }).done(function () {
         hideLoader();
@@ -96,29 +221,42 @@ function Signup(SignUpFirstName, SignUpLastName, SignUpUserName, SignUpUserName,
 
 
 function ValidateEmail() {
-
+	 checkConnection();
     var postData = {
         email: $("#SignUpEmail").val()
     };
     $.ajax({
         type: "GET",
         beforeSend: showLoader(),
-        url: mainUrl + "checkemail",
+        url: webservicesiteurl + "Users/checkemail",
         data: postData,
         success: function (data) {
 
             if (data.ResponseData != 1) {
-
+            	//window.plugins.toast.show('Email is valid!', 'short', 'center', function (a) { }, function (b) { });
+                
             }
             else {
-                alert("already registered");
+            	  function alertDismissed() {
+
+                  }
+
+                  navigator.notification.alert(
+        			    'User already exist!',  // message
+        			    alertDismissed,         // callback
+        			    'YuYAPP',            // title
+        			    'OK'                  // buttonName
+        			);
+                  $("#SignUpEmail").val('');
+                  $("#SignUpEmail").focus();
             }
             console.log(data);
             //alert("success..." + data);
         },
         error: function (xhr) {
 
-            alert(xhr.responseText);
+        	 hideLoader();
+             // alert(xhr.responseText);
         }
     }).done(function () {
         hideLoader();

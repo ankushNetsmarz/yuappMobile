@@ -32,9 +32,7 @@ public class yuYapp extends CordovaActivity
         // Set by <content src="index.html" /> in config.xml
       //  super.loadUrl(Config.getStartUrl());
         super.loadUrl("file:///android_asset/www/login.html");
-//        WebSettings ws = super.appView.getSettings();
-//        ws.setSupportZoom(true);
-//        ws.setBuiltInZoomControls(true); 
+
     }
 }
 

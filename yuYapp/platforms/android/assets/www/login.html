@@ -8,23 +8,39 @@
 
 </head>
 
-<body class="green-gredient">
+<body class="green-gredient" style="display:none" >
 
 <div class="loader-bg" style="display:none">
 <div class="loader-area"><img src="images/482.GIF"></div>
 </div>
 
 
-<div class="login_main_div" id="LoginDiv">
-
+<div class="login_main_div" id="LoginDiv" style="display:none">
 
 <!-- In this page show login or Register screens -->
 <div class="logo"><img src="images/logo.png" alt=""></div>
 
-<div class="login_inputs" >
+<div class="login_inputs">
 <form>
-<div><input id="userLoginEmailId" type="text" placeholder="Username" class="user_input"></div>
-<div><input id="userLoginPassword" type="password" placeholder="Pasword" class="pass_input"></div>
+<div class="login-field">
+<label>
+
+<span class="fl user-span">Email</span>
+
+<input id="userLoginEmailId" type="text" class="fr">
+  <div class="clr"></div>
+</label>
+</div>
+
+<div class="login-field">
+<label>
+<span class="fl pswd-span">Password</span>
+<input id="userLoginPassword" type="password" class="fr">
+  <div class="clr"></div>
+</label>
+</div>
+
+
 </form>
 </div>
 <div class="loginpage_btns">
@@ -32,21 +48,19 @@
 
 
 <div class="fl login_btn_div" id="loginButtonDiv" >
-<div class="left_btn fl"><button type="submit" id="loginButton" class="but"><img src="images/login-icon.png" class="fl" style="margin:9px 0 0; width:17px;"> Login</button></div>
-<div class="right_btn fl"></div>
+<div class="left_btn fl"><button type="submit" id="loginButton" class="but"><img src="images/login-icon.png" class="fl" style="margin:6px 0 0 10px; width:17px;"> Login</button></div>
 <div class="clr"></div>
 </div>
 
 
 <div class="fr signup_btn_div" id="signUpButtonDiv">
-<div class="right_btn fl"></div>
-<div class="left_btn fl"><button type="submit" id="signUpButton" class="but">Signup <img src="images/signup-icon.png" class="fr" style="margin:9px 0 0; width:17px;"></button></div>
+<div class="left_btn fr"><button type="submit" id="signUpButton" class="but">Signup <img src="images/signup-icon.png" class="fr" style="margin:6px 10px 0 0; width:17px;"></button></div>
 
 <div class="clr"></div>
 </div>
 
 <div class="fr need_help">
-<a href="#" class="fl">Need Help&nbsp;&nbsp;<img src="images/help.png" class="fr" style="width:28px;"></a>
+<a href="#" class="fl">Need Help&nbsp;&nbsp;<img  id="help" src="images/help.png" class="fr" style="width:28px;"></a>
 <div class="clr"></div>
 </div>
 <div class="clr"></div>
@@ -60,12 +74,44 @@
 <div class="signup-logo"><img src="images/logo.png" alt=""></div>
 <div class="signup_inputs">
 <form>
-<div><input  id="SignUpFullName"  type="text" placeholder="Full Name" class="signup_box"></div>
-<div><input  id="SignUpUserName" type="text" placeholder="User Name" class="signup_box"></div>
-<div><input  id="SignUpEmail" type="email" placeholder="Email Address" class="signup_box"></div>
-<div><input id="SignUpPassword" type="password" placeholder="Pasword" class="signup_box"></div>
-<div><input id="SignUpDOB" placeholder="mm/dd/yyyy" class="signup_box"></div>
-<div><input id="SignUpgender"  placeholder="gender" class="gender signup_box"></div>
+
+<div class="signup-field"><label>
+<span class="fl first-span">Full Name</span><input id="SignUpFullName" type="text" class="fr">
+<div class="clr"></div>
+</label></div>
+
+<div class="signup-field"><label>
+<span class="fl scnd-span">Username</span><input id="SignUpUserName" type="text" class="fr">
+<div class="clr"></div>
+</label></div>
+
+<div class="signup-field"><label>
+<span class="fl email-span">Email</span><input id="SignUpEmail" type="email" class="fr">
+<div class="clr"></div>
+</label></div>
+
+<div class="signup-field"><label>
+<span class="fl pswd-span">Password</span><input id="SignUpPassword" type="password" class="fr">
+<div class="clr"></div>
+</label></div>
+
+<div class="signup-field"><label>
+<span class="fl DOB-span">DOB</span><input id="SignUpDOB" type="text" class="fr">
+<div class="clr"></div>
+</label></div>
+
+<div class="signup-field"><label>
+<span class="fl gender-span">Gender</span>
+<select id="selectors">
+                                    <option id="male" value="Male">Male</option>
+                                    <option id="female" value="Female">Female</option>                              
+                                </select>
+<div class="clr"></div>
+</label></div>
+
+<div>
+ 
+</div>
 
 </form>
 </div>
@@ -74,14 +120,12 @@
 <div class="registerpage_btns">
 
 <div class="fl login_btn_div">
-<div class="left_btn fl"><button type="submit" id="backButtonRegister" class="but"><img src="images/back-icon.png" class="fl" style="margin:11px 0 0;"> Back</button></div>
-<div class="right_btn fl"></div>
+<div class="left_btn fl"><button type="submit" id="backButtonRegister" class="but"><img src="images/back-icon.png" class="fl" style="margin:7px 0 0 10px;"> Cancel</button></div>
 <div class="clr"></div>
 </div>
 
 <div class="fr signup_btn_div">
-<div class="right_btn fl"></div>
-<div class="left_btn fl"><button type="submit" id="RegisterButton" class="but">Register <img src="images/register-icon.png" class="fr" style="margin:11px 0 0;"></button></div>
+<div class="left_btn fr"><button type="submit" id="RegisterButton" class="but">Register <img src="images/register-icon.png" class="fr" style="margin:7px 10px 0 0;"></button></div>
 
 <div class="clr"></div>
 </div>
@@ -95,43 +139,42 @@
 
     <script src="js/ajaxWebService.js"></script>
     <script src="js/jquery-2.0.2.js"></script>
+     <script src="js/connection.js"></script>
     <script src="js/SignIn.js"></script>
     <script src="js/signUp.js"></script>
-       <!--<script src="js/signUp.js"></script>-->
+      <script src="cordova.js"></script>
     <script>
         document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
-
-            function alertDismissed() {
-
-            }
-
-            navigator.notification.alert(
-			    'You are the winner!',  // message
-			    alertDismissed,         // callback
-			    'Game Over',            // title
-			    'Done'                  // buttonName
-			);
-
+        checkConnection();       
         }
+     
         $(document).ready(function () {
-            //  var options = {
-            //	  date: new Date(),
-            //	  mode: 'date'
-            //	 };			
-            //	      datePicker.show(options, function(date){
-            //		  alert("date result " + date);  
-            //    }); 
-
+      
 
 
             var LoginName = localStorage.getItem("LoginName");
             var loginPassword = localStorage.getItem("loginPassword");
 
-            if (LoginName && loginPassword != null) {
+            if (LoginName && loginPassword != null)
+             {
+            
                 SignIn(LoginName, loginPassword);
             }
+
+            else {
+              $(".green-gredient").css("display", "table");
+              
+                $("#LoginDiv").css("display", "block");
+               
+            }
+             $("#help").on("click", function () {
+             window.plugins.toast.show('For more information login to www.yuyapp.com !', 'long', 'center', function (a) { }, function (b) { });
+          
+            });
+           
         });
+
 
     </script>
 </body>

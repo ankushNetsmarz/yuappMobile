@@ -6,17 +6,22 @@ function GetNotificationCount() {
     $.ajax({
         type: "GET",
         //url: "http://localhost:6269/posts/GetNotificationCount",
-        url: "http://174.141.233.6/YuY/posts/GetNotificationCount",
+        url: webservicesiteurl + "posts/GetNotificationCount",
         data: postData,
         success: function (data) {
-            UpdateNotification()
-            console.log(data);
+            // UpdateNotification()
+          var value= data.ResponseData;
+          if(value!=0)
+        	  {
+            $(".notify-badge").text(data.ResponseData);
+        	  }
+            console.log(data.ResponseData);
           
             //alert("success..." + data);
         },
         error: function (xhr) {
-            
-            alert(xhr.responseText);
+        	checkConnection();
+            //alert(xhr.responseText);
         }
     });
 }
@@ -29,7 +34,7 @@ function UpdateNotification() {
     $.ajax({
         type: "GET",
        // url: "http://localhost:6269/posts/UpdateNotification",
-       url: "http://174.141.233.6/YuY/posts/UpdateNotification",
+        url: webservicesiteurl + "posts/UpdateNotification",
         data: postData,
         success: function (data) {
             //GetNotificationCount();
@@ -37,8 +42,8 @@ function UpdateNotification() {
             //alert("success..." + data);
         },
         error: function (xhr) {
-            debugger;
-            alert(xhr.responseText);
+        	checkConnection();
+          //  alert(xhr.responseText);
         }
     });
 }

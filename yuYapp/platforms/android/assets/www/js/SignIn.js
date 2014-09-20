@@ -4,19 +4,49 @@ $("#loginButton").on("click", function () {
     var userLoginEmailId = $("#userLoginEmailId").val();
     var loginPassword = $("#userLoginPassword").val();
 
-    if (userLoginEmailId != '' || loginPassword != '')
+    if(userLoginEmailId == '' ) 
+        
     {
-        SignIn(userLoginEmailId, loginPassword);
+    	  function alertDismissed() {
+
+          }
+
+          navigator.notification.alert(
+			    'Email cannot be empty!',  // message
+			    alertDismissed,         // callback
+			    'YuYAPP',            // title
+			    'OK'                  // buttonName
+			);
     }
-    else {
-        alert("fields cant be empty");
+    
+    else if (loginPassword == '' )
+    {
+    	  function alertDismissed() {
+
+          }
+
+          navigator.notification.alert(
+			    'Password cannot be empty!',  // message
+			    alertDismissed,         // callback
+			    'YuYAPP',           // title
+			    'OK'                  // buttonName
+			);
     }
+  
+    else
+        
+    {
+    	 SignIn(userLoginEmailId, loginPassword);
+    	
+    }
+    
+    
 });
 
 
 
 function SignIn(userLoginEmailId, loginPassword) {
-
+	// checkConnection();
     var userData = {
 
         email: userLoginEmailId,
@@ -25,7 +55,7 @@ function SignIn(userLoginEmailId, loginPassword) {
     $.ajax({
         type: "GET",
         beforeSend: showLoader(),
-        url: mainUrl + "login",
+        url: webservicesiteurl + "Users/login",
         data: userData,
         success: function (data) {
 
@@ -38,14 +68,17 @@ function SignIn(userLoginEmailId, loginPassword) {
                 localStorage.setItem("userId", userId);
                 localStorage.setItem("LoginName", userLoginEmailId);
                 localStorage.setItem("loginPassword", loginPassword);
-              window.location.replace("home.html");
+                window.location.replace("home.html");
             }
             else {
-                alert("wrong user");
+            	   window.plugins.toast.show('Wrong user!', 'long', 'center', function (a) { }, function (b) { });
+                   
             }
         },
         error: function (xhr) {
-            alert(xhr.responseText);
+        	 checkConnection();
+        	  hideLoader();
+           // alert(xhr.responseText);
         }
     }).done(function () {
         hideLoader();
